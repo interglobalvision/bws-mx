@@ -60,14 +60,6 @@ function igv_cmb_metaboxes() {
 	) );
 
   $event_metabox->add_field( array(
-		'name' => esc_html__( 'Artists', 'cmb2' ),
-		'id'   => $prefix . 'event_artists',
-		'type' => 'post_search_text',
-    'post_type'   => 'artist',
-    'select_behavior' => 'replace',
-	) );
-
-  $event_metabox->add_field( array(
 		'name' => esc_html__( 'Installation views', 'cmb2' ),
 		'id'   => $prefix . 'event_images_install',
 		'type' => 'file_list',
@@ -79,31 +71,6 @@ function igv_cmb_metaboxes() {
 		'id'   => $prefix . 'event_images_works',
 		'type' => 'file_list',
     'preview_size' => array( 150, 150 ),
-	) );
-
-
-  // ARTIST
-
-  $artist_metabox = new_cmb2_box( array(
-    'id'            => $prefix . 'artist_metabox',
-    'title'         => esc_html__( 'Options', 'cmb2' ),
-    'object_types'  => array( 'artist' ), // Post type
-  ) );
-
-  $artist_metabox->add_field( array(
-		'name' => esc_html__( 'Works', 'cmb2' ),
-		'id'   => $prefix . 'artist_works',
-		'type' => 'post_search_text',
-    'post_type'   => 'work',
-    'select_behavior' => 'replace',
-	) );
-
-  $artist_metabox->add_field( array(
-		'name' => esc_html__( 'CV', 'cmb2' ),
-		'id'   => $prefix . 'artist_cv',
-		'type' => 'post_search_text',
-    'post_type'   => 'cv',
-    'select_behavior' => 'replace',
 	) );
 
 
@@ -120,6 +87,41 @@ function igv_cmb_metaboxes() {
 		'id'   => $prefix . 'work_inventory',
 		'type' => 'text',
 	) );
+
+  $work_metabox->add_field( array(
+		'name' => esc_html__( 'Year, Material, Dimensions', 'cmb2' ),
+		'id'   => $prefix . 'work_details',
+		'type' => 'textarea',
+	) );
+
+  $work_metabox->add_field( array(
+		'name' => esc_html__( 'Additional info', 'cmb2' ),
+		'id'   => $prefix . 'work_info',
+		'type' => 'textarea',
+	) );
+
+
+  // INFORMATION
+
+  $info_page = get_page_by_path('information');
+
+  if (!empty($info_page) ) {
+
+    $information_metabox = new_cmb2_box( array(
+      'id'            => $prefix . 'info_metabox',
+      'title'         => esc_html__( 'Options', 'cmb2' ),
+      'object_types'  => array( 'page' ), // Post type
+      'show_on'      => array( 'key' => 'id', 'value' => array($info_page->ID) ),
+    ) );
+
+    $information_metabox->add_field( array(
+  		'name' => esc_html__( 'Staff', 'cmb2' ),
+  		'id'   => $prefix . 'info_staff',
+  		'type' => 'textarea',
+      'repeatable' => true,
+  	) );
+
+  }
 
 }
 ?>
