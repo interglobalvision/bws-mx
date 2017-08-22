@@ -39,5 +39,40 @@ function igv_cmb_metaboxes() {
    * Reference: https://github.com/WebDevStudios/CMB2/blob/master/example-functions.php
    */
 
+  // EVENT
+
+  $event_metabox = new_cmb2_box( array(
+    'id'            => $prefix . 'event_metabox',
+    'title'         => esc_html__( 'Options', 'cmb2' ),
+    'object_types'  => array( 'event' ), // Post type
+  ) );
+
+  $event_metabox->add_field( array(
+		'name' => esc_html__( 'Start Date', 'cmb2' ),
+		'id'   => $prefix . 'event_start_date',
+		'type' => 'text_date_timestamp',
+	) );
+
+  $event_metabox->add_field( array(
+		'name' => esc_html__( 'End Date', 'cmb2' ),
+		'id'   => $prefix . 'event_end_date',
+		'type' => 'text_date_timestamp',
+	) );
+
+  $event_metabox->add_field( array(
+		'name' => esc_html__( 'Artists', 'cmb2' ),
+		'id'   => $prefix . 'event_artists',
+		'type' => 'post_search_text',
+    'post_type'   => 'artist',
+    'select_behavior' => 'replace',
+	) );
+
+  $event_metabox->add_field( array(
+		'name' => esc_html__( 'Images', 'cmb2' ),
+		'id'   => $prefix . 'event_images',
+		'type' => 'file_list',
+    'preview_size' => array( 150, 150 ),
+	) );
+
 }
 ?>
