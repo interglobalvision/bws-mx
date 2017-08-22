@@ -92,12 +92,18 @@ function igv_cmb_metaboxes() {
 		'name' => esc_html__( 'Year, Material, Dimensions', 'cmb2' ),
 		'id'   => $prefix . 'work_details',
 		'type' => 'textarea',
+    'attributes' => array(
+      'data-cmb2-qtranslate' => true,
+    ),
 	) );
 
   $work_metabox->add_field( array(
 		'name' => esc_html__( 'Additional info', 'cmb2' ),
 		'id'   => $prefix . 'work_info',
 		'type' => 'textarea',
+    'attributes' => array(
+      'data-cmb2-qtranslate' => true,
+    ),
 	) );
 
 
@@ -119,6 +125,39 @@ function igv_cmb_metaboxes() {
   		'id'   => $prefix . 'info_staff',
   		'type' => 'textarea',
       'repeatable' => true,
+      'attributes' => array(
+        'data-cmb2-qtranslate' => true,
+      ),
+  	) );
+
+    $information_metabox->add_field( array(
+  		'name' => esc_html__( 'Address', 'cmb2' ),
+  		'id'   => $prefix . 'info_address',
+  		'type' => 'textarea',
+      'attributes' => array(
+        'data-cmb2-qtranslate' => true,
+      ),
+  	) );
+
+    $information_metabox->add_field( array(
+  		'name' => esc_html__( 'Hours', 'cmb2' ),
+  		'id'   => $prefix . 'info_hours',
+  		'type' => 'textarea',
+      'attributes' => array(
+        'data-cmb2-qtranslate' => true,
+      ),
+  	) );
+
+    $information_metabox->add_field( array(
+  		'name' => esc_html__( 'Email', 'cmb2' ),
+  		'id'   => $prefix . 'info_email',
+  		'type' => 'text_email',
+  	) );
+
+    $information_metabox->add_field( array(
+  		'name' => esc_html__( 'Phone', 'cmb2' ),
+  		'id'   => $prefix . 'info_phone',
+  		'type' => 'text',
   	) );
 
   }
@@ -137,6 +176,9 @@ function igv_cmb_metaboxes() {
 		'name' => esc_html__( 'City', 'cmb2' ),
 		'id'   => $prefix . 'location_city',
 		'type' => 'text',
+    'attributes' => array(
+      'data-cmb2-qtranslate' => true,
+    ),
 	) );
 
 }
