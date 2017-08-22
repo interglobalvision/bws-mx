@@ -123,5 +123,21 @@ function igv_cmb_metaboxes() {
 
   }
 
+
+  // LOCATION
+
+  $location_metabox = new_cmb2_box( array(
+    'id'               => $prefix . 'location_metabox',
+    'title'            => esc_html__( 'Options', 'cmb2' ), // Doesn't output for term boxes
+    'object_types'     => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
+    'taxonomies'       => array( 'location' ), // Tells CMB2 which taxonomies should have these fields
+  ) );
+
+  $location_metabox->add_field( array(
+		'name' => esc_html__( 'City', 'cmb2' ),
+		'id'   => $prefix . 'location_city',
+		'type' => 'text',
+	) );
+
 }
 ?>
