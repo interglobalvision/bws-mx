@@ -68,10 +68,57 @@ function igv_cmb_metaboxes() {
 	) );
 
   $event_metabox->add_field( array(
-		'name' => esc_html__( 'Images', 'cmb2' ),
-		'id'   => $prefix . 'event_images',
+		'name' => esc_html__( 'Installation views', 'cmb2' ),
+		'id'   => $prefix . 'event_images_install',
 		'type' => 'file_list',
     'preview_size' => array( 150, 150 ),
+	) );
+
+  $event_metabox->add_field( array(
+		'name' => esc_html__( 'Works', 'cmb2' ),
+		'id'   => $prefix . 'event_images_works',
+		'type' => 'file_list',
+    'preview_size' => array( 150, 150 ),
+	) );
+
+
+  // ARTIST
+
+  $artist_metabox = new_cmb2_box( array(
+    'id'            => $prefix . 'artist_metabox',
+    'title'         => esc_html__( 'Options', 'cmb2' ),
+    'object_types'  => array( 'artist' ), // Post type
+  ) );
+
+  $artist_metabox->add_field( array(
+		'name' => esc_html__( 'Works', 'cmb2' ),
+		'id'   => $prefix . 'artist_works',
+		'type' => 'post_search_text',
+    'post_type'   => 'work',
+    'select_behavior' => 'replace',
+	) );
+
+  $artist_metabox->add_field( array(
+		'name' => esc_html__( 'CV', 'cmb2' ),
+		'id'   => $prefix . 'artist_cv',
+		'type' => 'post_search_text',
+    'post_type'   => 'cv',
+    'select_behavior' => 'replace',
+	) );
+
+
+  // WORK
+
+  $work_metabox = new_cmb2_box( array(
+    'id'            => $prefix . 'work_metabox',
+    'title'         => esc_html__( 'Options', 'cmb2' ),
+    'object_types'  => array( 'work' ), // Post type
+  ) );
+
+  $work_metabox->add_field( array(
+		'name' => esc_html__( 'Inventory #', 'cmb2' ),
+		'id'   => $prefix . 'work_inventory',
+		'type' => 'text',
 	) );
 
 }
