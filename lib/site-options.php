@@ -58,7 +58,7 @@ function igv_register_theme_options_metabox() {
     // 'save_button'     => esc_html__( 'Save Theme Options', 'cmb2' ), // The text for the options-page save button. Defaults to 'Save'.
   ) );
 
-  // Social Media variables
+  // Header variables
 
   $site_options->add_field( array(
     'name'    => esc_html__( 'Header settings', 'cmb2' ),
@@ -69,6 +69,26 @@ function igv_register_theme_options_metabox() {
   $site_options->add_field( array(
     'name'    => esc_html__( 'Strapline', 'cmb2' ),
     'id'      => $prefix . 'header_strapline',
+    'type'    => 'text',
+  ) );
+
+  // Contact variables
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Contact settings', 'cmb2' ),
+    'id'      => $prefix . 'contact_title',
+    'type'    => 'title',
+  ) );
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Tel number', 'cmb2' ),
+    'id'      => $prefix . 'contact_tel',
+    'type'    => 'text',
+  ) );
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Email address', 'cmb2' ),
+    'id'      => $prefix . 'contact_email',
     'type'    => 'text',
   ) );
 
