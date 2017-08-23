@@ -39,5 +39,173 @@ function igv_cmb_metaboxes() {
    * Reference: https://github.com/WebDevStudios/CMB2/blob/master/example-functions.php
    */
 
+  // EVENT
+
+  $event_metabox = new_cmb2_box( array(
+    'id'            => $prefix . 'event_metabox',
+    'title'         => esc_html__( 'Options', 'cmb2' ),
+    'object_types'  => array( 'event' ), // Post type
+  ) );
+
+  $event_metabox->add_field( array(
+    'name' => esc_html__( 'Start Date', 'cmb2' ),
+    'id'   => $prefix . 'event_start_date',
+    'type' => 'text_date_timestamp',
+  ) );
+
+  $event_metabox->add_field( array(
+    'name' => esc_html__( 'End Date', 'cmb2' ),
+    'id'   => $prefix . 'event_end_date',
+    'type' => 'text_date_timestamp',
+  ) );
+
+  $event_metabox->add_field( array(
+    'name' => esc_html__( 'Installation views', 'cmb2' ),
+    'id'   => $prefix . 'event_images_install',
+    'type' => 'file_list',
+    'preview_size' => array( 150, 150 ),
+  ) );
+
+  $event_metabox->add_field( array(
+    'name' => esc_html__( 'Works', 'cmb2' ),
+    'id'   => $prefix . 'event_images_works',
+    'type' => 'file_list',
+    'preview_size' => array( 150, 150 ),
+  ) );
+
+
+  // WORK
+
+  $work_metabox = new_cmb2_box( array(
+    'id'            => $prefix . 'work_metabox',
+    'title'         => esc_html__( 'Options', 'cmb2' ),
+    'object_types'  => array( 'work' ), // Post type
+  ) );
+
+  $work_metabox->add_field( array(
+    'name' => esc_html__( 'Inventory #', 'cmb2' ),
+    'id'   => $prefix . 'work_inventory',
+    'type' => 'text',
+  ) );
+
+  $work_metabox->add_field( array(
+    'name' => esc_html__( 'Year, Material, Dimensions', 'cmb2' ),
+    'id'   => $prefix . 'work_details',
+    'type' => 'textarea',
+    'attributes' => array(
+      'data-cmb2-qtranslate' => true,
+    ),
+  ) );
+
+  $work_metabox->add_field( array(
+    'name' => esc_html__( 'Additional info', 'cmb2' ),
+    'id'   => $prefix . 'work_info',
+    'type' => 'textarea',
+    'attributes' => array(
+      'data-cmb2-qtranslate' => true,
+    ),
+  ) );
+
+
+  // INFORMATION
+
+  $info_page = get_page_by_path('information');
+
+  if (!empty($info_page) ) {
+
+    $information_metabox = new_cmb2_box( array(
+      'id'            => $prefix . 'info_metabox',
+      'title'         => esc_html__( 'Options', 'cmb2' ),
+      'object_types'  => array( 'page' ), // Post type
+      'show_on'      => array( 'key' => 'id', 'value' => array($info_page->ID) ),
+    ) );
+
+    $information_metabox->add_field( array(
+      'name' => esc_html__( 'Staff', 'cmb2' ),
+      'id'   => $prefix . 'info_staff',
+      'type' => 'textarea',
+      'repeatable' => true,
+      'attributes' => array(
+        'data-cmb2-qtranslate' => true,
+      ),
+    ) );
+
+    $staff_group = $information_metabox->add_field( array(
+      'id'          => $prefix . 'info_staff',
+      'type'        => 'group',
+      'options'     => array(
+        'group_title'   => esc_html__( 'Member {#}', 'cmb2' ), // {#} gets replaced by row number
+        'add_button'    => esc_html__( 'Add Another Member', 'cmb2' ),
+        'remove_button' => esc_html__( 'Remove Member', 'cmb2' ),
+        'sortable'      => true, // beta
+      ),
+    ) );
+
+        $information_metabox->add_group_field( $staff_group, array(
+          'name'       => esc_html__( 'Name', 'cmb2' ),
+          'id'         => 'name',
+          'type'       => 'text',
+        ) );
+
+        $information_metabox->add_group_field( $staff_group, array(
+          'name'       => esc_html__( 'Role', 'cmb2' ),
+          'id'         => 'role',
+          'type'       => 'text',
+          'attributes' => array(
+            'data-cmb2-qtranslate' => true,
+          ),
+        ) );
+
+        $information_metabox->add_field( array(
+          'name' => esc_html__( 'Address', 'cmb2' ),
+          'id'   => $prefix . 'info_address',
+          'type' => 'textarea_small',
+          'attributes' => array(
+            'data-cmb2-qtranslate' => true,
+          ),
+        ) );
+
+        $information_metabox->add_field( array(
+          'name' => esc_html__( 'Hours', 'cmb2' ),
+          'id'   => $prefix . 'info_hours',
+          'type' => 'textarea_small',
+          'attributes' => array(
+            'data-cmb2-qtranslate' => true,
+          ),
+        ) );
+
+        $information_metabox->add_field( array(
+          'name' => esc_html__( 'Email', 'cmb2' ),
+          'id'   => $prefix . 'info_email',
+          'type' => 'text_email',
+        ) );
+
+        $information_metabox->add_field( array(
+          'name' => esc_html__( 'Phone', 'cmb2' ),
+          'id'   => $prefix . 'info_phone',
+          'type' => 'text',
+        ) );
+
+  }
+
+
+  // LOCATION
+
+  $location_metabox = new_cmb2_box( array(
+    'id'               => $prefix . 'location_metabox',
+    'title'            => esc_html__( 'Options', 'cmb2' ), // Doesn't output for term boxes
+    'object_types'     => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
+    'taxonomies'       => array( 'location' ), // Tells CMB2 which taxonomies should have these fields
+  ) );
+
+  $location_metabox->add_field( array(
+    'name' => esc_html__( 'City', 'cmb2' ),
+    'id'   => $prefix . 'location_city',
+    'type' => 'text',
+    'attributes' => array(
+      'data-cmb2-qtranslate' => true,
+    ),
+  ) );
+
 }
 ?>
