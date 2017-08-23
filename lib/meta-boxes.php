@@ -141,50 +141,38 @@ function igv_cmb_metaboxes() {
       ),
     ) );
 
-        $information_metabox->add_group_field( $staff_group, array(
-          'name'       => esc_html__( 'Name', 'cmb2' ),
-          'id'         => 'name',
-          'type'       => 'text',
-        ) );
+    $information_metabox->add_group_field( $staff_group, array(
+      'name'       => esc_html__( 'Name', 'cmb2' ),
+      'id'         => 'name',
+      'type'       => 'text',
+    ) );
 
-        $information_metabox->add_group_field( $staff_group, array(
-          'name'       => esc_html__( 'Role', 'cmb2' ),
-          'id'         => 'role',
-          'type'       => 'text',
-          'attributes' => array(
-            'data-cmb2-qtranslate' => true,
-          ),
-        ) );
+    $information_metabox->add_group_field( $staff_group, array(
+      'name'       => esc_html__( 'Role', 'cmb2' ),
+      'id'         => 'role',
+      'type'       => 'text',
+      'attributes' => array(
+        'data-cmb2-qtranslate' => true,
+      ),
+    ) );
 
-        $information_metabox->add_field( array(
-          'name' => esc_html__( 'Address', 'cmb2' ),
-          'id'   => $prefix . 'info_address',
-          'type' => 'textarea_small',
-          'attributes' => array(
-            'data-cmb2-qtranslate' => true,
-          ),
-        ) );
+    $information_metabox->add_field( array(
+      'name' => esc_html__( 'Address', 'cmb2' ),
+      'id'   => $prefix . 'info_address',
+      'type' => 'textarea_small',
+      'attributes' => array(
+        'data-cmb2-qtranslate' => true,
+      ),
+    ) );
 
-        $information_metabox->add_field( array(
-          'name' => esc_html__( 'Hours', 'cmb2' ),
-          'id'   => $prefix . 'info_hours',
-          'type' => 'textarea_small',
-          'attributes' => array(
-            'data-cmb2-qtranslate' => true,
-          ),
-        ) );
-
-        $information_metabox->add_field( array(
-          'name' => esc_html__( 'Email', 'cmb2' ),
-          'id'   => $prefix . 'info_email',
-          'type' => 'text_email',
-        ) );
-
-        $information_metabox->add_field( array(
-          'name' => esc_html__( 'Phone', 'cmb2' ),
-          'id'   => $prefix . 'info_phone',
-          'type' => 'text',
-        ) );
+    $information_metabox->add_field( array(
+      'name' => esc_html__( 'Hours', 'cmb2' ),
+      'id'   => $prefix . 'info_hours',
+      'type' => 'textarea_small',
+      'attributes' => array(
+        'data-cmb2-qtranslate' => true,
+      ),
+    ) );
 
   }
 

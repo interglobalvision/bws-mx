@@ -58,12 +58,46 @@ function igv_register_theme_options_metabox() {
     // 'save_button'     => esc_html__( 'Save Theme Options', 'cmb2' ), // The text for the options-page save button. Defaults to 'Save'.
   ) );
 
+  // Header variables
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Header settings', 'cmb2' ),
+    'id'      => 'header_title',
+    'type'    => 'title',
+  ) );
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Strapline', 'cmb2' ),
+    'id'      => 'header_strapline',
+    'type'    => 'text',
+  ) );
+
+  // Contact variables
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Contact settings', 'cmb2' ),
+    'id'      => 'contact_title',
+    'type'    => 'title',
+  ) );
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Tel number', 'cmb2' ),
+    'id'      => 'contact_tel',
+    'type'    => 'text',
+  ) );
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Email address', 'cmb2' ),
+    'id'      => 'contact_email',
+    'type'    => 'text',
+  ) );
+
   // Social Media variables
 
   $site_options->add_field( array(
     'name'    => esc_html__( 'Social Media', 'cmb2' ),
     'desc'    => esc_html__( 'Urls and accounts for different social media platforms. For use in menus and metadata', 'cmb2' ),
-    'id'      => $prefix . 'socialmedia_title',
+    'id'      => 'socialmedia_title',
     'type'    => 'title',
   ) );
 
@@ -90,7 +124,7 @@ function igv_register_theme_options_metabox() {
   $site_options->add_field( array(
     'name'    => esc_html__( 'Metadata options', 'cmb2' ),
     'desc'    => esc_html__( 'Settings relating to open graph, facebook and twitter sharing, and other social media metadata', 'cmb2' ),
-    'id'      => $prefix . 'og_title',
+    'id'      => 'og_title',
     'type'    => 'title',
   ) );
 
@@ -120,7 +154,7 @@ function igv_register_theme_options_metabox() {
   $site_options->add_field( array(
     'name'    => esc_html__( 'Analytics', 'cmb2' ),
     'desc'    => esc_html__( 'Settings for analytics', 'cmb2' ),
-    'id'      => $prefix . 'analytics_title',
+    'id'      => 'analytics_title',
     'type'    => 'title',
   ) );
 

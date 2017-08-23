@@ -28,6 +28,27 @@ get_template_part('partials/seo');
 
 <section id="main-container">
 
-  <header id="header">
-    <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+  <header id="header" class="container">
+    <div class="grid-row padding-top-tiny padding-bottom-tiny">
+      <div class="grid-item item-m-2">
+        <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+      </div>
+      <div class="grid-item item-m-6 font-serif">
+        <?php
+          $options = get_site_option('_igv_site_options');
+
+          if (!empty($options['header_strapline'])) {
+            echo $options['header_strapline'];
+          }
+        ?>
+      </div>
+      <div class="grid-item item-m-3">
+        <ul class="u-inline-list">
+          <li><a href="<?php echo home_url('archive'); ?>"><?php echo __('[:es]Archivo[:en]Archive'); ?></a></li>
+          <li><a href="<?php echo home_url('information'); ?>"><?php echo __('[:es]Información[:en]Information'); ?></a></li>
+        </ul>
+      </div>
+      <div class="grid-item item-m-1 text-align-right">
+        <?php echo qtranxf_generateLanguageSelectCode('text'); ?>
+      </div>
   </header>
