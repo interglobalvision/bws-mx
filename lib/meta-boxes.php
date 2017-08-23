@@ -130,10 +130,36 @@ function igv_cmb_metaboxes() {
       ),
   	) );
 
+    $staff_group = $information_metabox->add_field( array(
+  		'id'          => $prefix . 'info_staff',
+  		'type'        => 'group',
+  		'options'     => array(
+  			'group_title'   => esc_html__( 'Member {#}', 'cmb2' ), // {#} gets replaced by row number
+  			'add_button'    => esc_html__( 'Add Another Member', 'cmb2' ),
+  			'remove_button' => esc_html__( 'Remove Member', 'cmb2' ),
+  			'sortable'      => true, // beta
+  		),
+  	) );
+
+    $information_metabox->add_group_field( $staff_group, array(
+  		'name'       => esc_html__( 'Name', 'cmb2' ),
+  		'id'         => 'name',
+  		'type'       => 'text',
+  	) );
+
+    $information_metabox->add_group_field( $staff_group, array(
+  		'name'       => esc_html__( 'Role', 'cmb2' ),
+  		'id'         => 'role',
+  		'type'       => 'text',
+      'attributes' => array(
+        'data-cmb2-qtranslate' => true,
+      ),
+  	) );
+
     $information_metabox->add_field( array(
   		'name' => esc_html__( 'Address', 'cmb2' ),
   		'id'   => $prefix . 'info_address',
-  		'type' => 'textarea',
+  		'type' => 'textarea_small',
       'attributes' => array(
         'data-cmb2-qtranslate' => true,
       ),
@@ -142,7 +168,7 @@ function igv_cmb_metaboxes() {
     $information_metabox->add_field( array(
   		'name' => esc_html__( 'Hours', 'cmb2' ),
   		'id'   => $prefix . 'info_hours',
-  		'type' => 'textarea',
+  		'type' => 'textarea_small',
       'attributes' => array(
         'data-cmb2-qtranslate' => true,
       ),
