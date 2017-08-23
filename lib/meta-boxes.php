@@ -80,7 +80,7 @@ function igv_cmb_metaboxes() {
   ) );
 
   $event_metabox->add_field( array(
-    'name' => esc_html__( 'Works', 'cmb2' ),
+    'name' => esc_html__( 'Work images', 'cmb2' ),
     'id'   => $prefix . 'event_images_works',
     'type' => 'file_list',
     'preview_size' => array( 150, 150 ),
@@ -127,7 +127,7 @@ function igv_cmb_metaboxes() {
   ) );
 
   $work_metabox->add_field( array(
-    'name' => esc_html__( 'Work', 'cmb2' ),
+    'name' => esc_html__( 'Work images', 'cmb2' ),
     'id'   => $prefix . 'work_images_works',
     'type' => 'file_list',
     'preview_size' => array( 150, 150 ),
