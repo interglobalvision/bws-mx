@@ -67,6 +67,12 @@ function igv_cmb_metaboxes() {
   ) );
 
   $event_metabox->add_field( array(
+    'name' => esc_html__( 'Show dates', 'cmb2' ),
+    'id'   => $prefix . 'event_show_dates',
+    'type' => 'checkbox',
+  ) );
+
+  $event_metabox->add_field( array(
     'name' => esc_html__( 'Installation views', 'cmb2' ),
     'id'   => $prefix . 'event_images_install',
     'type' => 'file_list',
@@ -89,7 +95,7 @@ function igv_cmb_metaboxes() {
     'object_types'  => array( 'work' ), // Post type
   ) );
 
-  $event_metabox->add_field( array(
+  $work_metabox->add_field( array(
     'name' => esc_html__( 'Show on Home', 'cmb2' ),
     'id'   => $prefix . 'work_show_home',
     'type' => 'checkbox',
