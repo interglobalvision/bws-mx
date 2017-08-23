@@ -7,18 +7,18 @@
         <?php
           $options = get_site_option('_igv_site_options');
 
-          if (!empty($options['_igv_contact_tel'])) {
+          if (!empty($options['contact_tel'])) {
         ?>
         <div class="margin-bottom-tiny">
-          <a href="tel:<?php echo $options['_igv_contact_tel']; ?>"><?php echo $options['_igv_contact_tel']; ?></a>
+          <a href="tel:<?php echo $options['contact_tel']; ?>"><?php echo $options['contact_tel']; ?></a>
         </div>
         <?php
           }
 
-          if (!empty($options['_igv_contact_email'])) {
+          if (!empty($options['contact_email'])) {
         ?>
         <div>
-          <a href="mailto:<?php echo $options['_igv_contact_email']; ?>"><?php echo $options['_igv_contact_email']; ?></a>
+          <a href="mailto:<?php echo $options['contact_email']; ?>"><?php echo $options['contact_email']; ?></a>
         </div>
         <?php
           }

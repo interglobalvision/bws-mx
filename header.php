@@ -37,8 +37,8 @@ get_template_part('partials/seo');
         <?php
           $options = get_site_option('_igv_site_options');
 
-          if (!empty($options['_igv_header_strapline'])) {
-            echo $options['_igv_header_strapline'];
+          if (!empty($options['header_strapline'])) {
+            echo $options['header_strapline'];
           }
         ?>
       </div>
