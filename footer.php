@@ -32,19 +32,19 @@
         <?php
           if (!empty($options['socialmedia_instagram'])) {
         ?>
-          <li><a href="https://instagram.com/<?php echo $options['socialmedia_instagram']; ?>">ig icon</a></li>
+          <li><a href="https://instagram.com/<?php echo $options['socialmedia_instagram']; ?>"><?php echo url_get_contents(get_template_directory_uri() . '/dist/img/icon_ig.svg'); ?></a></li>
         <?php
           }
 
           if (!empty($options['socialmedia_facebook_url'])) {
         ?>
-          <li><a href="<?php echo $options['socialmedia_facebook_url']; ?>">fb icon</a></li>
+          <li><a href="<?php echo $options['socialmedia_facebook_url']; ?>"><?php echo url_get_contents(get_template_directory_uri() . '/dist/img/icon_fb.svg'); ?></a></li>
         <?php
           }
 
           if (!empty($options['socialmedia_twitter'])) {
         ?>
-          <li><a href="https://twitter.com/<?php echo $options['socialmedia_twitter']; ?>">twitter icon</a></li>
+          <li><a href="https://twitter.com/<?php echo $options['socialmedia_twitter']; ?>"><?php echo url_get_contents(get_template_directory_uri() . '/dist/img/icon_tw.svg'); ?></a></li>
         <?php
           }
         ?>
