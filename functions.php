@@ -69,7 +69,7 @@ get_template_part( 'lib/post-types' );
 get_template_part( 'lib/meta-boxes' );
 get_template_part( 'lib/taxonomies' );
 get_template_part( 'lib/attachment-meta' );
-get_template_part( 'lib/theme-options/theme-options' );
+get_template_part( 'lib/site-options' );
 
 // Add custom functions
 
