@@ -3,7 +3,7 @@ get_header();
 ?>
 
 <main id="main-content">
-  
+
   <section id="posts">
     <div class="container">
 
@@ -30,7 +30,7 @@ if ($posts) {
         <article <?php post_class('grid-item item-s-12 item-m-7 item-l-6 margin-bottom-mid', $post_id); ?> id="post-<?php echo $post_id; ?>">
 
 <?php
-      if ($event_cats) {
+      if (!empty($event_cats)) {
 ?>
           <div class="font-serif"><?php echo $event_cats[0]; ?></div>
 <?php

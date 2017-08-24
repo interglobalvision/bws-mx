@@ -68,7 +68,10 @@ function event_date_location($post_id) {
 // of Event and Work posts for Home
 // alterneting 1 event, 1 work
 function front_page_posts() {
-  $args = array(
+
+  // Get events marked as Show on home sort by
+  // start_date, start_date should not be empty
+  $events_args = array(
     'post_type'       =>  array('event'),
     'posts_per_page'  =>  '-1',
     'meta_key'        =>  '_igv_event_start_date',
@@ -81,9 +84,10 @@ function front_page_posts() {
     )
   );
 
-  $events = get_posts( $args );
+  $events = get_posts( $events_args );
 
-  $args = array(
+
+  $works_args = array(
     'post_type'       =>  array('work'),
     'posts_per_page'  =>  '-1',
     'meta_query'      =>  array(
@@ -95,7 +99,7 @@ function front_page_posts() {
     )
   );
 
-  $works = get_posts( $args );
+  $works = get_posts( $works_args );
 
   $posts = array();
 
