@@ -32,7 +32,7 @@ if ($posts) {
 <?php
       if (!empty($event_cats)) {
 ?>
-          <div class="font-serif"><?php echo $event_cats[0]; ?></div>
+          <div class="font-sans"><?php echo $event_cats[0]->name; ?></div>
 <?php
       }
 ?>
@@ -76,38 +76,32 @@ if ($posts) {
 // WORK
 
     if ($post_type == 'work') {
+      $work_cats = wp_get_post_terms($post_id, 'work_cat');
       $work_info = get_post_meta($post_id, '_igv_work_info', true);
       $work_artists = get_post_artists($post_id);
 
-      $classes = 'grid-item item-s-12 item-m-4 item-l-4 margin-bottom-mid ';
-
       if (!isset($posts[$i-1])) {
         // This is the first post
-        $classes .= 'offset-m-8 offset-l-8';
 ?>
-      <div class="grid-row">
+      <div class="grid-row justify-end">
 <?php
       } else {
         // This is not the first post
         if ($posts[$i-1]->post_type != 'event') {
           // but the previous was not Event
-          $classes .= 'offset-m-8 offset-l-8';
 ?>
-      <div class="grid-row">
+      <div class="grid-row justify-end">
 <?php
-        } else {
-          // and the previous was Event
-          $classes .= 'offset-m-1 offset-l-2';
         }
       }
 ?>
 
-        <article <?php post_class($classes, $post_id); ?> id="post-<?php echo $post_id; ?>">
+        <article <?php post_class('grid-item item-s-12 item-m-4 item-l-4 margin-bottom-mid offset-m-1 offset-l-2', $post_id); ?> id="post-<?php echo $post_id; ?>">
 
 <?php
-      if ($event_cats) {
+      if ($work_cats) {
 ?>
-          <div class="font-serif"><?php echo $event_cats[0]; ?></div>
+          <div class="font-sans"><?php echo $work_cats[0]->name; ?></div>
 <?php
       }
 ?>
