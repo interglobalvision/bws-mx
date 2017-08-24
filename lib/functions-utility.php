@@ -74,3 +74,8 @@ function echo_post_meta($post_id, $field_id) {
     echo '';
   }
 }
+
+// Wrapper function for qTranslateX date conversion
+function translate_datetime($format, $datetime) {
+  return qtranxf_strftime(qtranxf_convertFormat($format, $format), $datetime, '');
+}

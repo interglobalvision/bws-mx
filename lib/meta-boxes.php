@@ -48,6 +48,13 @@ function igv_cmb_metaboxes() {
   ) );
 
   $event_metabox->add_field( array(
+    'name' => esc_html__( 'Show on Home', 'cmb2' ),
+    'id'   => $prefix . 'event_show_home',
+    'type' => 'checkbox',
+    'column'  => true,
+  ) );
+
+  $event_metabox->add_field( array(
     'name' => esc_html__( 'Start Date', 'cmb2' ),
     'id'   => $prefix . 'event_start_date',
     'type' => 'text_date_timestamp',
@@ -60,6 +67,12 @@ function igv_cmb_metaboxes() {
   ) );
 
   $event_metabox->add_field( array(
+    'name' => esc_html__( 'Show dates', 'cmb2' ),
+    'id'   => $prefix . 'event_show_dates',
+    'type' => 'checkbox',
+  ) );
+
+  $event_metabox->add_field( array(
     'name' => esc_html__( 'Installation views', 'cmb2' ),
     'id'   => $prefix . 'event_images_install',
     'type' => 'file_list',
@@ -67,7 +80,7 @@ function igv_cmb_metaboxes() {
   ) );
 
   $event_metabox->add_field( array(
-    'name' => esc_html__( 'Works', 'cmb2' ),
+    'name' => esc_html__( 'Work images', 'cmb2' ),
     'id'   => $prefix . 'event_images_works',
     'type' => 'file_list',
     'preview_size' => array( 150, 150 ),
@@ -80,6 +93,13 @@ function igv_cmb_metaboxes() {
     'id'            => $prefix . 'work_metabox',
     'title'         => esc_html__( 'Options', 'cmb2' ),
     'object_types'  => array( 'work' ), // Post type
+  ) );
+
+  $work_metabox->add_field( array(
+    'name' => esc_html__( 'Show on Home', 'cmb2' ),
+    'id'   => $prefix . 'work_show_home',
+    'type' => 'checkbox',
+    'column'  => true,
   ) );
 
   $work_metabox->add_field( array(
@@ -104,6 +124,20 @@ function igv_cmb_metaboxes() {
     'attributes' => array(
       'data-cmb2-qtranslate' => true,
     ),
+  ) );
+
+  $work_metabox->add_field( array(
+    'name' => esc_html__( 'Work images', 'cmb2' ),
+    'id'   => $prefix . 'work_images_works',
+    'type' => 'file_list',
+    'preview_size' => array( 150, 150 ),
+  ) );
+
+  $work_metabox->add_field( array(
+    'name' => esc_html__( 'Installation views', 'cmb2' ),
+    'id'   => $prefix . 'work_images_install',
+    'type' => 'file_list',
+    'preview_size' => array( 150, 150 ),
   ) );
 
 
