@@ -66,6 +66,7 @@ function event_date_location($post_id) {
 
 // Retrieve, sort, and return array
 // of Event and Work posts for Home
+// alterneting 1 event, 1 work
 function front_page_posts() {
   $args = array(
     'post_type'       =>  array('event'),
@@ -98,7 +99,7 @@ function front_page_posts() {
 
   $posts = array();
 
-  if ($events || $works) {
+  if (!empty($events) || !empty($works)) {
     $total = count($events) + count($works);
 
     $total_counter = 0;
