@@ -72,20 +72,6 @@ function igv_cmb_metaboxes() {
     'type' => 'checkbox',
   ) );
 
-  $event_metabox->add_field( array(
-    'name' => esc_html__( 'Installation views', 'cmb2' ),
-    'id'   => $prefix . 'event_images_install',
-    'type' => 'file_list',
-    'preview_size' => array( 150, 150 ),
-  ) );
-
-  $event_metabox->add_field( array(
-    'name' => esc_html__( 'Work images', 'cmb2' ),
-    'id'   => $prefix . 'event_images_works',
-    'type' => 'file_list',
-    'preview_size' => array( 150, 150 ),
-  ) );
-
 
   // WORK
 
@@ -126,16 +112,25 @@ function igv_cmb_metaboxes() {
     ),
   ) );
 
-  $work_metabox->add_field( array(
+
+  // DOCUMENTATION
+
+  $documentation_metabox = new_cmb2_box( array(
+    'id'            => $prefix . 'documentation_metabox',
+    'title'         => esc_html__( 'Documentation', 'cmb2' ),
+    'object_types'  => array( 'event', 'work' ), // Post type
+  ) );
+
+  $documentation_metabox->add_field( array(
     'name' => esc_html__( 'Work images', 'cmb2' ),
-    'id'   => $prefix . 'work_images_works',
+    'id'   => $prefix . 'documentation_works',
     'type' => 'file_list',
     'preview_size' => array( 150, 150 ),
   ) );
 
-  $work_metabox->add_field( array(
+  $documentation_metabox->add_field( array(
     'name' => esc_html__( 'Installation views', 'cmb2' ),
-    'id'   => $prefix . 'work_images_install',
+    'id'   => $prefix . 'documentation_install',
     'type' => 'file_list',
     'preview_size' => array( 150, 150 ),
   ) );
