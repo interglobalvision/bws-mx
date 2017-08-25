@@ -145,3 +145,65 @@ function front_page_posts() {
 
   return $posts;
 }
+
+
+// Build related posts section from artist array
+function related_by_artist($artist_slug_array) {
+  $args = array(
+    'post_type' => array('event', 'work'),
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'artist',
+        'field'    => 'slug',
+        'terms'    => $artist_slug_array,
+      ),
+    ),
+    'posts_per_page' => '20',
+
+  );
+
+  $related = new WP_Query($args);
+
+  if ($related->have_posts()) {
+?>
+  <div id="related-holder" class="container">
+    <div id="related-row" class="grid-row">
+<?php
+    while ($related->have_posts()) {
+      $related->the_post();
+
+      $post_type = get_post_type();
+?>
+      <div class="grid-item related-item">
+        <a href="<?php the_permalink() ?>">
+          <?php
+            if ($post_type == 'event') {
+              get_template_part('partials/related_event');
+            } else if ($post_type == 'work') {
+              get_template_part('partials/related_work');
+            }
+          ?>
+        </a>
+      </div>
+<?php
+    }
+?>
+    </div>
+  </div>
+<?php
+  }
+  wp_reset_postdata();
+}
+
+// Return array of artist term slugs from post
+function get_artist_slug_array($post_id) {
+  $artist_terms = wp_get_post_terms($post_id, 'artist');
+
+  $artist_slug_array = array();
+
+  foreach ($artist_terms as $artist) {
+    array_push($artist_slug_array, $artist->slug);
+  }
+
+  return $artist_slug_array;
+}
