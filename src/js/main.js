@@ -49,7 +49,9 @@ Site.Gallery = {
   },
 
   initSwiper: function(type) {
-    new Swiper ('.swiper-' + type, {
+    var _this = this;
+
+    new Swiper ('#swiper-' + type, {
       loop: true,
       slidesPerView: 'auto',
       loopedSlides: 5,
@@ -58,10 +60,32 @@ Site.Gallery = {
       slideToClickedSlide: true,
       nextButton: '.slider-next-' + type,
       prevButton: '.slider-prev-' + type,
+      onTap: function(swiper) {
+        swiper.slideNext();
+      },
+      onInit: function(swiper) {
+        _this.updateCaption(swiper.realIndex);
+      },
+      onSlideChangeEnd: function(swiper) {
+        _this.updateCaption(swiper.realIndex);
+      },
     });
   },
 
+  updateCaption: function(activeIndex) {
+    // Update caption in slider control row
+    // from '.slide-caption' elem in active slide
+    var caption = $('.slider-holder.active .swiper-slide[data-swiper-slide-index="' + activeIndex + '"] .slide-caption').html();
+
+    if (!caption) {
+      caption = '';
+    }
+
+    $('.slider-controls-caption').html(caption);
+  },
+
   bindSwitch: function() {
+    // Bind 'Installation View' / 'Works' slider toggle
     $('.slider-switch').on('click', function() {
       if (!$(this).hasClass('.active')) {
         var type = $(this).attr('data-target');
