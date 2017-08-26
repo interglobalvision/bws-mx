@@ -52,11 +52,11 @@ if (have_posts()) {
           </div>
         </div>
 
-        <?php generate_gallery($post->ID); ?>
+        <?php render_gallery($post->ID); ?>
 
         <?php
           if (!empty($event_artists)) {
-            related_by_artist(get_artist_slug_array($post->ID));
+            render_related_by_artist(get_artist_slug_array($post->ID));
           }
         ?>
 

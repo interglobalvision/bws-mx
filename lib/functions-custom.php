@@ -147,8 +147,8 @@ function front_page_posts() {
 }
 
 
-// Build related posts section from artist array
-function related_by_artist($artist_slug_array) {
+// Render related posts section from artist array
+function render_related_by_artist($artist_slug_array) {
   $args = array(
     'post_type' => array('event', 'work'),
     'tax_query' => array(
