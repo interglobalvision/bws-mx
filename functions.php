@@ -75,6 +75,7 @@ get_template_part( 'lib/site-options' );
 
 get_template_part( 'lib/functions-misc' );
 get_template_part( 'lib/functions-custom' );
+get_template_part( 'lib/functions-gallery' );
 get_template_part( 'lib/functions-filters' );
 get_template_part( 'lib/functions-hooks' );
 get_template_part( 'lib/functions-utility' );
