@@ -178,9 +178,9 @@ function render_related_by_artist($current_post_id) {
         <a href="<?php the_permalink() ?>">
           <?php
             if ($post_type == 'event') {
-              get_template_part('partials/related_event');
+              get_template_part('partials/related-event');
             } else if ($post_type == 'work') {
-              get_template_part('partials/related_work');
+              get_template_part('partials/related-work');
             }
           ?>
         </a>
