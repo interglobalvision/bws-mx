@@ -148,18 +148,18 @@ function front_page_posts() {
 
 
 // Render related posts section from artist array
-function render_related_by_artist($artist_slug_array) {
+function render_related_by_artist($current_post_id) {
   $args = array(
-    'post_type' => array('event', 'work'),
+    'post_type' => array('event'),
     'tax_query' => array(
       array(
         'taxonomy' => 'artist',
         'field'    => 'slug',
-        'terms'    => $artist_slug_array,
+        'terms'    => get_artist_slug_array($current_post_id),
       ),
     ),
     'posts_per_page' => '20',
-
+    'post__not_in' => array($current_post_id)
   );
 
   $related = new WP_Query($args);
@@ -204,6 +204,6 @@ function get_artist_slug_array($post_id) {
   foreach ($artist_terms as $artist) {
     array_push($artist_slug_array, $artist->slug);
   }
-  
+
   return $artist_slug_array;
 }

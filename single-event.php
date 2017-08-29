@@ -56,7 +56,7 @@ if (have_posts()) {
 
         <?php
           if (!empty($event_artists)) {
-            render_related_by_artist(get_artist_slug_array($post->ID));
+            render_related_by_artist($post->ID);
           }
         ?>
 
