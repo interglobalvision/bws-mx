@@ -199,11 +199,7 @@ function render_related_by_artist($artist_slug_array) {
 function get_artist_slug_array($post_id) {
   $artist_terms = wp_get_post_terms($post_id, 'artist');
 
-  $artist_slug_array = array();
-
-  foreach ($artist_terms as $artist) {
-    array_push($artist_slug_array, $artist->slug);
-  }
+  $artist_slug_array = array_column($artist_terms, 'slug');
 
   return $artist_slug_array;
 }
