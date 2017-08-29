@@ -150,7 +150,7 @@ function front_page_posts() {
 // Render related posts section from artist array
 function render_related_by_artist($current_post_id) {
   $args = array(
-    'post_type' => array('event'),
+    'post_type' => array('event','work'),
     'tax_query' => array(
       array(
         'taxonomy' => 'artist',
