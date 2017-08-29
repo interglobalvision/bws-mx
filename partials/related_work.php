@@ -6,7 +6,7 @@ $work_artists = get_post_artists($post->ID);
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
 <?php
-if (!empty($event_cats)) {
+if (!empty($work_cats)) {
 ?>
   <div class="font-sans"><?php echo $work_cats[0]->name; ?></div>
 <?php
@@ -16,7 +16,7 @@ if (!empty($event_cats)) {
   <h3 class="font-serif font-italic"><?php the_title(); ?></h2>
 
 <?php
-if (!empty($event_artists)) {
+if (!empty($work_artists)) {
 ?>
   <div class="font-serif"><?php echo $work_artists; ?></div>
 <?php
