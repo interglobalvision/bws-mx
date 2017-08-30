@@ -42,10 +42,16 @@ if (have_posts()) {
           </div>
 
           <div class="grid-row margin-bottom-basic">
-            <div class="grid-item item-s-12 item-l-6 font-sans">
-              <?php echo !empty($work_details) ? apply_filters('the_content', $work_details) : '&nbsp;'; ?>
+<?php
+      if (!empty($work_details)) {
+?>
+            <div class="grid-item item-s-12 item-l-4 font-sans">
+              <?php echo apply_filters('the_content', $work_details); ?>
             </div>
-            <div class="grid-item item-s-12 item-l-6 font-serif">
+<?php
+      }
+?>
+            <div class="grid-item item-s-12 item-l-4 <?php echo empty($work_details) ? 'offset-l-4' : ''; ?> font-serif">
               <?php the_content(); ?>
             </div>
           </div>
