@@ -2,27 +2,9 @@
 get_header();
 
 $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-?>
-
-<main id="main-content">
-  <section id="taxonomy-archive">
-    <header class="container">
-      <div class="grid-row">
-        <div class="grid-item item-s-12">
-          <h3 class="margin-bottom-small">Artist</h3>
-        </div>
-        <div class="grid-item item-s-12 item-m-6">
-          <h1 class="margin-bottom-basic"><?php echo $term->name; ?></h1>
-        </div>
-        <div class="grid-item item-s-12 item-m-6">
-          <a href="<?php // echo $getcvlinkhere; ?>">CV</a>
-        </div>
-      </div>
-    </header>
-<?php
-
-$events = new WP_Query(array(
-  'post_type' => 'event',
+$cv_post = get_posts(array(
+  'numberposts' => '1',
+  'post_type' => 'cv',
   'tax_query' => array(
     array(
       'taxonomy' => 'artist',
@@ -31,22 +13,69 @@ $events = new WP_Query(array(
     ),
   ),
 ));
+?>
+
+<main id="main-content">
+  <article id="taxonomy-archive">
+    <header class="container margin-bottom-mid">
+      <div class="grid-row margin-bottom-basic">
+        <div class="grid-item item-s-12">
+          <h3>Artist</h3>
+        </div>
+      </div>
+      <div class="grid-row align-items-end">
+        <div class="grid-item item-s-12 item-m-6">
+          <h1><?php echo $term->name; ?></h1>
+        </div>
+<?php
+if ($cv_post) {
+?>
+        <div class="grid-item item-s-12 item-m-6">
+          <a href="<?php echo get_the_permalink($cv_post[0]->ID); ?>">CV</a>
+        </div>
+<?php
+}
+?>
+      </div>
+    </header>
+<?php
+
+$events = new WP_Query(array(
+  'post_type' => array('event','work'),
+  'tax_query' => array(
+    array(
+      'taxonomy' => 'artist',
+      'field'    => 'slug',
+      'terms'    => $term->slug,
+    ),
+    array(
+      'compare'  => '!=',
+      'taxonomy' => 'work_cat',
+      'field'    => 'slug',
+      'terms'    => 'work',
+    )
+  ),
+));
 
 if ($events->have_posts()) {
 ?>
-    <section id="single-artist-events" class="container">
+    <section id="single-artist-events" class="container margin-bottom-basic">
       <div class="grid-row">
 <?php
   while ($events->have_posts()) {
     $events->the_post();
 ?>
 
-        <article <?php post_class('grid-item item-s-12 item-m-3'); ?> id="post-<?php the_ID(); ?>">
-
-          <a href="<?php the_permalink() ?>"><h2><?php the_title(); ?></h2></a>
-
-          <?php the_content(); ?>
-
+        <article <?php post_class('grid-item item-s-12 item-m-4 item-l-3'); ?> id="post-<?php the_ID(); ?>">
+          <a href="<?php the_permalink() ?>">
+            <?php
+              if ($post_type == 'event') {
+                get_template_part('partials/related-event');
+              } else if ($post_type == 'work') {
+                get_template_part('partials/related-work');
+              }
+            ?>
+          </a>
         </article>
 
 <?php
@@ -56,6 +85,8 @@ if ($events->have_posts()) {
     </section>
 <?php
 }
+
+wp_reset_postdata();
 
 $works = new WP_Query(array(
   'post_type' => 'work',
@@ -65,15 +96,20 @@ $works = new WP_Query(array(
       'field'    => 'slug',
       'terms'    => $term->slug,
     ),
+    array(
+      'taxonomy'  => 'work_cat',
+      'field'     => 'slug',
+      'terms'     => 'work'
+    )
   ),
 ));
 
 if ($works->have_posts()) {
 ?>
-    <section id="single-artist-works" class="container">
+    <section id="single-artist-works" class="container padding-top-basic top-border">
       <div class="grid-row margin-bottom-small">
         <div class="grid-item item-s-12">
-          Works
+          <?php _e('[:en]Works[:es]Obras[:]'); ?>
         </div>
       </div>
       <div class="grid-row">
@@ -81,15 +117,11 @@ if ($works->have_posts()) {
   while ($works->have_posts()) {
     $works->the_post();
 ?>
+        <article <?php post_class('grid-item item-s-12 item-m-4'); ?> id="post-<?php the_ID(); ?>">
 
-        <article <?php post_class('grid-item item-s-12 item-m-3'); ?> id="post-<?php the_ID(); ?>">
-
-          <a href="<?php the_permalink() ?>"><h2><?php the_title(); ?></h2></a>
-
-          <?php the_post_thumbnail(); ?>
+          <?php get_template_part('partials/artist-work'); ?>
 
         </article>
-
 <?php
   }
 ?>
@@ -97,10 +129,10 @@ if ($works->have_posts()) {
     </section>
 <?php
 }
-?>
-    </div>
-  </section>
 
+wp_reset_postdata();
+?>
+  </article>
 </main>
 
 <?php
