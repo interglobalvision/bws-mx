@@ -55,7 +55,7 @@ if (have_posts()) {
 
         <?php
           if (!empty($work_artists)) {
-            render_related_by_artist($post->ID);
+            render_related_by_artists($post->ID);
           }
         ?>
 
