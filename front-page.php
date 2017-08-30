@@ -22,7 +22,7 @@ if ($posts) {
 
     if ($post_type == 'event') {
       $event_cats = wp_get_post_terms($post_id, 'event_cat');
-      $event_artists = get_post_artists($post_id);
+      $event_artists = igv_get_post_artists($post_id);
       $event_date_location = event_date_location($post_id);
 ?>
       <div class="grid-row">
@@ -78,7 +78,7 @@ if ($posts) {
     if ($post_type == 'work') {
       $work_cats = wp_get_post_terms($post_id, 'work_cat');
       $work_info = get_post_meta($post_id, '_igv_work_info', true);
-      $work_artists = get_post_artists($post_id);
+      $work_artists = igv_get_post_artists($post_id);
 
       if (!isset($posts[$i-1])) {
         // This is the first post
