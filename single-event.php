@@ -3,7 +3,7 @@ get_header();
 ?>
 
 <main id="main-content">
-  <section id="posts">
+  <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
 <?php
 if (have_posts()) {
@@ -14,60 +14,58 @@ if (have_posts()) {
     $event_artists = igv_get_post_artists($post->ID);
     $event_date_location = event_date_location($post->ID);
 ?>
-
-      <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-        <div class="container">
-          <div class="grid-row margin-bottom-basic">
-            <div class="grid-item item-s-12 item-l-6">
+    <header class="container">
+      <div class="grid-row margin-bottom-basic">
+        <div class="grid-item item-s-12 item-l-6">
 <?php
       if (!empty($event_cats)) {
 ?>
-              <div class="font-sans margin-bottom-basic"><?php echo $event_cats[0]->name; ?></div>
+          <div class="font-sans margin-bottom-basic"><?php echo $event_cats[0]->name; ?></div>
 <?php
       }
 ?>
 
-              <h1 class="font-serif font-italic"><?php echo get_the_title($post->ID); ?></h1>
+          <h1 class="font-serif font-italic"><?php echo get_the_title($post->ID); ?></h1>
 
 <?php
       if (!empty($event_artists)) {
 ?>
-              <div class="font-serif"><?php echo $event_artists; ?></div>
+          <div class="font-serif"><?php echo $event_artists; ?></div>
 <?php
       }
 
       if (!empty($event_date_location)) {
 ?>
-              <div class="font-sans margin-top-small"><?php _e($event_date_location); ?></div>
+          <div class="font-sans margin-top-small"><?php _e($event_date_location); ?></div>
 <?php
       }
 ?>
-            </div>
-          </div>
-
-          <div class="grid-row margin-bottom-basic">
-            <div class="grid-item item-s-12 text-columns text-columns-s-1 text-columns-m-2 text-columns-l-3">
-              <?php the_content(); ?>
-            </div>
-          </div>
         </div>
+      </div>
+    </header>
 
-        <?php render_gallery($post->ID); ?>
+    <section class="container">
+      <div class="grid-row margin-bottom-basic">
+        <div class="grid-item item-s-12 text-columns text-columns-s-1 text-columns-m-2 text-columns-l-3">
+          <?php the_content(); ?>
+        </div>
+      </div>
+    </section>
 
-        <?php
-          if (!empty($event_artists)) {
-            render_related_by_artists($post->ID);
-          }
-        ?>
+    <?php render_gallery($post->ID); ?>
 
-      </article>
+    <?php
+      if (!empty($event_artists)) {
+        render_related_by_artists($post->ID);
+      }
+    ?>
 
 <?php
   }
 }
 ?>
 
-  </section>
+  </article>
 </main>
 
 <?php

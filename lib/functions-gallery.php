@@ -5,7 +5,7 @@ function render_gallery($post_id) {
   $works_images = get_post_meta($post_id, '_igv_documentation_works', true);
   $install_images = get_post_meta($post_id, '_igv_documentation_install', true);
 ?>
-<div id="gallery-holder" class="margin-bottom-mid">
+<section id="gallery-holder" class="margin-bottom-mid">
   <div id="sliders">
 
 <?php
@@ -71,7 +71,7 @@ function render_gallery($post_id) {
     </div>
 
   </div>
-</div>
+</section>
 <?php
 }
 

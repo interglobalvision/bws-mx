@@ -3,7 +3,8 @@ get_header();
 ?>
 
 <main id="main-content">
-  <div class="container">
+  <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+
 
 <?php
 if (have_posts()) {
@@ -15,9 +16,9 @@ if (have_posts()) {
     $staff = get_post_meta($post->ID, '_igv_info_staff', true);
 ?>
 
-    <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+    <h1 class="u-visuallyhidden"><?php the_title(); ?></h1>
 
-      <h1 class="u-visuallyhidden"><?php the_title(); ?></h1>
+    <section class="container">
 
       <div class="grid-row align-items-end margin-bottom-mid">
         <div class="grid-item item-s-12 item-m-6 item-l-7 flex-grow">
@@ -28,6 +29,10 @@ if (have_posts()) {
           <?php the_content(); ?>
         </div>
       </div>
+
+    </section>
+
+    <section class="container">
 
       <div class="grid-row font-sans">
         <div class="grid-item item-s-12 item-m-6 item-l-4 flex-grow">
@@ -66,14 +71,14 @@ if (have_posts()) {
         </div>
       </div>
 
-    </article>
+    </section>
 
 <?php
   }
 }
 ?>
 
-  </div>
+  </article>
 </main>
 
 <?php

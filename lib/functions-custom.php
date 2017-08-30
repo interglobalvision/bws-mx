@@ -166,7 +166,7 @@ function render_related_by_artists($current_post_id) {
 
   if ($related->have_posts()) {
 ?>
-  <div id="related-holder" class="container">
+  <section id="related-holder" class="container margin-bottom-mid">
     <div id="related-row" class="grid-row">
 <?php
     while ($related->have_posts()) {
@@ -189,7 +189,7 @@ function render_related_by_artists($current_post_id) {
     }
 ?>
     </div>
-  </div>
+  </section>
 <?php
   }
   wp_reset_postdata();
