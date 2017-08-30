@@ -11,7 +11,7 @@ if (have_posts()) {
     the_post();
 
     $event_cats = wp_get_post_terms($post->ID, 'event_cat');
-    $event_artists = get_post_artists($post->ID);
+    $event_artists = igv_get_post_artists($post->ID);
     $event_date_location = event_date_location($post->ID);
 ?>
 

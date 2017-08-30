@@ -3,7 +3,7 @@
 // Custom functions (like special queries, etc)
 
 // Return string of Artists
-function get_post_artists($post_id) {
+function igv_get_post_artists($post_id) {
   $artist_terms = wp_get_post_terms($post_id, 'artist');
   $count_terms = count($artist_terms);
 

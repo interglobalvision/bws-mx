@@ -11,7 +11,7 @@ if (have_posts()) {
     the_post();
 
     $work_cats = wp_get_post_terms($post->ID, 'work_cat');
-    $work_artists = get_post_artists($post->ID);
+    $work_artists = igv_get_post_artists($post->ID);
     $work_details = get_post_meta($post->ID, '_igv_work_details', true);
 ?>
 
