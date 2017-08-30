@@ -3,8 +3,8 @@ get_header();
 ?>
 
 <main id="main-content">
-    <div class="container">
-      <div class="grid-row">
+  <div class="container">
+    <div class="grid-row">
 
 <?php
 if (have_posts()) {
