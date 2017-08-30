@@ -23,7 +23,7 @@ function render_gallery($post_id) {
 
   </div>
 
-  <div id="slider-controls">
+  <div id="slider-controls" class="container">
 
     <div class="grid-row justify-between align-items-start">
       <div class="grid-item item-s-6 item-m-4">

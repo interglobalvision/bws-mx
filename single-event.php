@@ -11,7 +11,7 @@ if (have_posts()) {
     the_post();
 
     $event_cats = wp_get_post_terms($post->ID, 'event_cat');
-    $event_artists = get_post_artists($post->ID);
+    $event_artists = igv_get_post_artists($post->ID);
     $event_date_location = event_date_location($post->ID);
 ?>
 
@@ -56,7 +56,7 @@ if (have_posts()) {
 
         <?php
           if (!empty($event_artists)) {
-            render_related_by_artist(get_artist_slug_array($post->ID));
+            render_related_by_artists($post->ID);
           }
         ?>
 

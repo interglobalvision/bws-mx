@@ -3,7 +3,7 @@
 // Custom functions (like special queries, etc)
 
 // Return string of Artists
-function get_post_artists($post_id) {
+function igv_get_post_artists($post_id) {
   $artist_terms = wp_get_post_terms($post_id, 'artist');
   $count_terms = count($artist_terms);
 
@@ -148,18 +148,18 @@ function front_page_posts() {
 
 
 // Render related posts section from artist array
-function render_related_by_artist($artist_slug_array) {
+function render_related_by_artists($current_post_id) {
   $args = array(
-    'post_type' => array('event', 'work'),
+    'post_type' => array('event','work'),
     'tax_query' => array(
       array(
         'taxonomy' => 'artist',
         'field'    => 'slug',
-        'terms'    => $artist_slug_array,
+        'terms'    => get_artist_slug_array($current_post_id),
       ),
     ),
     'posts_per_page' => '20',
-
+    'post__not_in' => array($current_post_id)
   );
 
   $related = new WP_Query($args);
@@ -178,9 +178,9 @@ function render_related_by_artist($artist_slug_array) {
         <a href="<?php the_permalink() ?>">
           <?php
             if ($post_type == 'event') {
-              get_template_part('partials/related_event');
+              get_template_part('partials/related-event');
             } else if ($post_type == 'work') {
-              get_template_part('partials/related_work');
+              get_template_part('partials/related-work');
             }
           ?>
         </a>
@@ -199,7 +199,11 @@ function render_related_by_artist($artist_slug_array) {
 function get_artist_slug_array($post_id) {
   $artist_terms = wp_get_post_terms($post_id, 'artist');
 
-  $artist_slug_array = array_column($artist_terms, 'slug');
+  $artist_slug_array = array();
+
+  foreach ($artist_terms as $artist) {
+    array_push($artist_slug_array, $artist->slug);
+  }
 
   return $artist_slug_array;
 }
