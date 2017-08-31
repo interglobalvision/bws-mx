@@ -1,8 +1,8 @@
-  <footer id="footer" class="padding-top-basic padding-bottom-basic border-top-white">
+  <footer id="footer" class="padding-top-basic padding-bottom-small border-top-white">
     <div class="container">
       <div class="grid-row justify-between">
 
-        <div class="grid-item item-s-12 item-m-auto item-l-4 grid-row no-gutter">
+        <div class="grid-item item-s-12 item-m-auto item-l-4 grid-row no-gutter margin-bottom-small">
           <h2 id="footer-logo" class="grid-item item-s-6 item-m-auto font-logo"><a href="<?php echo home_url(); ?>">BWSMX</a></h2>
 
           <div class="grid-item flex-grow font-size-tiny">
@@ -28,7 +28,7 @@
           </div>
         </div>
 
-        <div class="grid-item item-s-6 item-m-auto item-l-6">
+        <div class="grid-item item-s-6 item-m-auto item-l-6 margin-bottom-small">
         <?php
           if (!empty($options['contact_mailchimp'])) {
             echo $options['contact_mailchimp'];
@@ -38,7 +38,7 @@
         ?>
         </div>
 
-        <div id="social-icons" class="grid-item item-s-6 item-m-auto item-l-2">
+        <div id="social-icons" class="grid-item item-s-6 item-m-auto item-l-2 margin-bottom-small">
           <ul class="u-inline-list">
           <?php
             if (!empty($options['socialmedia_instagram'])) {
