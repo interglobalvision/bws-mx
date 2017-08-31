@@ -15,7 +15,7 @@ $cv_post = get_posts(array(
 ));
 ?>
 
-<main id="main-content">
+<main id="main-content" class="padding-top-large">
   <article id="taxonomy-archive">
     <header class="container margin-bottom-mid">
       <div class="grid-row margin-bottom-basic">
