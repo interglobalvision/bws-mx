@@ -3,9 +3,8 @@ get_header();
 ?>
 
 <main id="main-content">
-  <section id="single-cv">
-    <div class="container">
-      <div class="grid-row">
+  <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+
 <?php
 if (have_posts()) {
   while (have_posts()) {
@@ -15,22 +14,32 @@ if (have_posts()) {
 
     if (count($artists)) {
 ?>
-        <article <?php post_class('grid-item item-s-12'); ?> id="post-<?php the_ID(); ?>">
+    <header class="container">
+      <div class="grid-row">
+        <div class="grid-item">
 
           <h3 class="margin-bottom-small"><a href="<?php echo get_term_link($artists[0]); ?>">Artist</a> / CV</h3>
           <h1 class="margin-bottom-basic"><?php echo $artists[0]->name; ?></h1>
 
+        </div>
+      </div>
+
+    <section class="container">
+      <div class="grid-row">
+        <div class="grid-item item-s-12 item-m-10 item-l-8">
+
           <?php the_content(); ?>
 
-        </article>
+        </div>
+      </div>
+    </section>
 <?php
     }
   }
 }
 ?>
-      </div>
-    </div>
-  </section>
+
+  </article>
 </main>
 
 <?php
