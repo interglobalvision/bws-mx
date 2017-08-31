@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-<main id="main-content">
+<main id="main-content" class="padding-top-large">
 
   <section id="posts">
     <div class="container">
@@ -32,27 +32,28 @@ if ($posts) {
 <?php
       if (!empty($event_cats)) {
 ?>
-          <div class="font-sans"><?php echo $event_cats[0]->name; ?></div>
+          <div class="font-sans font-size-tiny margin-bottom-basic"><?php echo $event_cats[0]->name; ?></div>
 <?php
       }
 ?>
-
-          <h2 class="font-serif font-italic"><a href="<?php echo get_the_permalink($post_id) ?>"><?php echo get_the_title($post_id); ?></a></h2>
+          <a href="<?php echo get_the_permalink($post_id) ?>" class="js-hover-item">
+            <?php echo get_the_post_thumbnail($post_id, 'hover-image', 'class=hover-image'); ?>
+            <h2 class="font-serif font-italic font-size-large"><?php echo get_the_title($post_id); ?></h2>
 
 <?php
       if (!empty($event_artists)) {
 ?>
-          <div class="font-serif"><?php echo $event_artists; ?></div>
+            <div class="font-serif font-size-mid"><?php echo $event_artists; ?></div>
 <?php
       }
 
       if (!empty($event_date_location)) {
 ?>
-          <div class="font-sans margin-top-small"><?php _e($event_date_location); ?></div>
+            <div class="font-sans margin-top-small"><?php _e($event_date_location); ?></div>
 <?php
       }
 ?>
-
+          </a>
         </article>
 
 <?php
@@ -101,26 +102,28 @@ if ($posts) {
 <?php
       if ($work_cats) {
 ?>
-          <div class="font-sans"><?php echo $work_cats[0]->name; ?></div>
+          <div class="font-sans font-size-tiny margin-bottom-basic"><?php echo $work_cats[0]->name; ?></div>
 <?php
       }
 ?>
-
-          <h2 class="font-serif font-italic"><a href="<?php echo get_the_permalink($post_id) ?>"><?php echo get_the_title($post_id); ?></a></h2>
+          <a href="<?php echo get_the_permalink($post_id) ?>" class="js-hover-item">
+            <?php echo get_the_post_thumbnail($post_id, 'hover-image', 'class=hover-image'); ?>
+            <h2 class="font-serif font-italic font-size-mid"><?php echo get_the_title($post_id); ?></h2>
 
 <?php
       if (!empty($work_artists)) {
 ?>
-          <div class="font-serif"><?php echo $work_artists; ?></div>
+            <div class="font-serif font-size-small"><?php echo $work_artists; ?></div>
 <?php
       }
 
       if (!empty($work_info)) {
 ?>
-          <div class="font-sans margin-top-small"><?php echo $work_info; ?></div>
+            <div class="font-sans margin-top-small font-size-tiny"><?php echo $work_info; ?></div>
 <?php
       }
 ?>
+          </a>
 
         </article>
 
