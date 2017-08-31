@@ -1,34 +1,44 @@
   <footer id="footer" class="padding-top-basic padding-bottom-basic border-top-white">
     <div class="container">
-      <div class="grid-row">
-        <div class="grid-item item-m-1">
-          <h2 id="footer-logo" class="font-logo"><a href="<?php echo home_url(); ?>">BWSMX</a></h2>
-        </div>
-        <div class="grid-item item-m-5 font-size-tiny">
+      <div class="grid-row justify-between">
+
+        <div class="grid-item item-s-12 item-m-auto item-l-4 grid-row no-gutter">
+          <h2 id="footer-logo" class="grid-item item-s-6 item-m-auto font-logo"><a href="<?php echo home_url(); ?>">BWSMX</a></h2>
+
+          <div class="grid-item flex-grow font-size-tiny">
           <?php
             $options = get_site_option('_igv_site_options');
 
             if (!empty($options['contact_tel'])) {
           ?>
-          <div class="margin-bottom-tiny">
-            <a class="link-underline" href="tel:<?php echo $options['contact_tel']; ?>"><?php echo $options['contact_tel']; ?></a>
-          </div>
+            <div class="margin-bottom-tiny">
+              <a class="link-underline" href="tel:<?php echo $options['contact_tel']; ?>"><?php echo $options['contact_tel']; ?></a>
+            </div>
           <?php
             }
 
             if (!empty($options['contact_email'])) {
           ?>
-          <div>
-            <a class="link-underline" href="mailto:<?php echo $options['contact_email']; ?>"><?php echo $options['contact_email']; ?></a>
-          </div>
+            <div>
+              <a class="link-underline" href="mailto:<?php echo $options['contact_email']; ?>"><?php echo $options['contact_email']; ?></a>
+            </div>
           <?php
             }
           ?>
+          </div>
         </div>
-        <div class="grid-item item-m-5">
-          ***mailchimp***
+
+        <div class="grid-item item-s-6 item-m-auto item-l-6">
+        <?php
+          if (!empty($options['contact_mailchimp'])) {
+            echo $options['contact_mailchimp'];
+          } else {
+            echo 'maiaiilllchiiiimppppp';
+          }
+        ?>
         </div>
-        <div class="grid-item item-m-1">
+
+        <div id="social-icons" class="grid-item item-s-6 item-m-auto item-l-2">
           <ul class="u-inline-list">
           <?php
             if (!empty($options['socialmedia_instagram'])) {
@@ -51,6 +61,7 @@
           ?>
           </ul>
         </div>
+
       </div>
     </div>
   </footer>
