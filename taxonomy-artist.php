@@ -41,19 +41,13 @@ if ($cv_post) {
 <?php
 
 $events = new WP_Query(array(
-  'post_type' => array('event','work'),
+  'post_type' => array('event'),
   'tax_query' => array(
     array(
       'taxonomy' => 'artist',
       'field'    => 'slug',
       'terms'    => $term->slug,
     ),
-    array(
-      'compare'  => '!=',
-      'taxonomy' => 'work_cat',
-      'field'    => 'slug',
-      'terms'    => 'work',
-    )
   ),
 ));
 
@@ -68,13 +62,7 @@ if ($events->have_posts()) {
 
         <article <?php post_class('grid-item item-s-12 item-m-4 item-l-3'); ?> id="post-<?php the_ID(); ?>">
           <a href="<?php the_permalink() ?>">
-            <?php
-              if ($post_type == 'event') {
-                get_template_part('partials/related-event');
-              } else if ($post_type == 'work') {
-                get_template_part('partials/related-work');
-              }
-            ?>
+            <?php get_template_part('partials/related-event'); ?>
           </a>
         </article>
 
@@ -96,11 +84,6 @@ $works = new WP_Query(array(
       'field'    => 'slug',
       'terms'    => $term->slug,
     ),
-    array(
-      'taxonomy'  => 'work_cat',
-      'field'     => 'slug',
-      'terms'     => 'work'
-    )
   ),
 ));
 
