@@ -1,5 +1,6 @@
 // HEADER
 
+$header-height = 44px
 $header-transition = 200ms ease-in-out
 
 #header
@@ -36,6 +37,20 @@ $header-transition = 200ms ease-in-out
     text-decoration: underline
   .active
     display: none
+
+#main-content
+  margin-top: $header-height
+
+// ******************************************************
+
+// FRONT
+
+.hover-image
+  opacity: 0
+  position: fixed
+  z-index: -100
+  &.show
+    opacity: .5
 
 // ******************************************************
 

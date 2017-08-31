@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-<main id="main-content">
+<main id="main-content" class="padding-top-large">
   <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
 

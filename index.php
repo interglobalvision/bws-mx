@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-<main id="main-content">
+<main id="main-content" class="padding-top-large">
   <section id="posts" class="container">
     <div class="grid-row">
 <?php
