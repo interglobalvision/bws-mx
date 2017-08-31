@@ -93,6 +93,12 @@ function igv_register_theme_options_metabox() {
     'type'    => 'text',
   ) );
 
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Mailchimp embed', 'cmb2' ),
+    'id'      => 'contact_mailchimp',
+    'type'    => 'textarea_code',
+  ) );
+
   // Social Media variables
 
   $site_options->add_field( array(
