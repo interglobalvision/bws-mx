@@ -1,4 +1,46 @@
+// HEADER
+
+$header-transition = 200ms ease-in-out
+
+#header
+  position: fixed
+  width: 100vw
+  top: 0
+  left: 0
+  background-color: $color-grey
+  font-size: 14px
+  z-index: 1000
+  &.stuck
+    border-bottom: 1px solid $color-white
+    #header-logo
+      font-size: 21px
+      margin-bottom: 0px
+    #strapline
+      transform: translateY(-200px)
+
+#strapline
+  transition: transform $header-transition
+
+#header-logo
+  line-height: 1
+  margin-bottom: -2px
+  transition: font-size $header-transition, margin-bottom $header-transition
+
+#main-nav
+  text-align: center
+  li:first-of-type
+    margin-right: $margin-small
+
+.language-chooser
+  a.qtranxs_text
+    text-decoration: underline
+  .active
+    display: none
+
+// ******************************************************
+
 // GALLERY
+
 #gallery-holder
   width: 100vw
   max-width: 100%
@@ -34,8 +76,10 @@
   &.active
     display: initial
 
+// ******************************************************
 
 // RELATED
+
 #related-holder
   overflow: scroll
 
