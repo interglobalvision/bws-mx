@@ -28,27 +28,41 @@ get_template_part('partials/seo');
 
 <section id="main-container">
 
-  <header id="header" class="container">
-    <div class="grid-row padding-top-tiny padding-bottom-tiny">
-      <div class="grid-item item-m-2">
-        <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-      </div>
-      <div class="grid-item item-m-6 font-serif">
-        <?php
-          $options = get_site_option('_igv_site_options');
+  <header id="header">
+    <div class="container">
+      <div class="grid-row padding-top-tiny padding-bottom-tiny align-items-end">
 
-          if (!empty($options['header_strapline'])) {
-            echo $options['header_strapline'];
-          }
-        ?>
+        <div class="grid-item item-m-3 item-l-7 item-xl-8 grid-row no-gutter align-items-end">
+          <h1 id="header-logo" class="grid-item item-l-4 item-xl-2 font-logo font-size-extra"><a href="<?php echo home_url(); ?>">BWSMX</a></h1>
+
+<?php
+  $options = get_site_option('_igv_site_options');
+
+  if (!empty($options['header_strapline'])) {
+?>
+          <div id="strapline" class="grid-item item-l-8 item-xl-10 font-serif font-italic font-size-mid desktop-only">
+            <?php
+              echo $options['header_strapline'][array_rand($options['header_strapline'], 1)] . ', ';
+              _e('[:en]Mexico City[:es]Ciudad de México[:]');
+            ?>
+          </div>
+<?php
+  }
+?>
+
+        </div>
+
+        <nav id="main-nav" class="grid-item item-m-7 item-l-4 item-xl-3 flex-grow">
+          <ul class="u-inline-list font-bold">
+            <li><a href="<?php echo home_url('archive'); ?>"><?php echo __('[:es]Archivo[:en]Archive'); ?></a></li>
+            <li><a href="<?php echo home_url('information'); ?>"><?php echo __('[:es]Información[:en]Information'); ?></a></li>
+          </ul>
+        </nav>
+
+        <div class="grid-item item-m-2 item-l-1 text-align-right">
+          <?php echo qtranxf_generateLanguageSelectCode('text'); ?>
+        </div>
+
       </div>
-      <div class="grid-item item-m-3">
-        <ul class="u-inline-list">
-          <li><a href="<?php echo home_url('archive'); ?>"><?php echo __('[:es]Archivo[:en]Archive'); ?></a></li>
-          <li><a href="<?php echo home_url('information'); ?>"><?php echo __('[:es]Información[:en]Information'); ?></a></li>
-        </ul>
-      </div>
-      <div class="grid-item item-m-1 text-align-right">
-        <?php echo qtranxf_generateLanguageSelectCode('text'); ?>
-      </div>
+    </div>
   </header>
