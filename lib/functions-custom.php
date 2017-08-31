@@ -174,7 +174,7 @@ function render_related_by_artists($current_post_id) {
 
       $post_type = get_post_type();
 ?>
-      <div class="grid-item related-item">
+      <article <?php post_class('grid-item related-item'); ?> id="post-<?php the_ID(); ?>">
         <a href="<?php the_permalink() ?>">
           <?php
             if ($post_type == 'event') {
@@ -184,7 +184,7 @@ function render_related_by_artists($current_post_id) {
             }
           ?>
         </a>
-      </div>
+      </article>
 <?php
     }
 ?>

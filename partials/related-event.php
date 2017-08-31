@@ -2,10 +2,7 @@
 $event_cats = wp_get_post_terms($post->ID, 'event_cat');
 $event_artists = igv_get_post_artists($post->ID);
 $event_date_location = event_date_location($post->ID);
-?>
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-<?php
 if (!empty($event_cats)) {
 ?>
   <div class="font-sans"><?php echo $event_cats[0]->name; ?></div>
@@ -28,5 +25,3 @@ if (!empty($event_date_location)) {
 <?php
 }
 ?>
-
-</article>
