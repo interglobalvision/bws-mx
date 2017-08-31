@@ -11,6 +11,9 @@ Site = {
     });
 
     $(document).ready(function () {
+
+      Site.Menu.init();
+
       if ($('.swiper-container').length) {
         Site.Gallery.init();
       }
@@ -30,6 +33,22 @@ Site = {
       var string = $(this).html();
       string = string.replace(/ ([^ ]*)$/,'&nbsp;$1');
       $(this).html(string);
+    });
+  },
+};
+
+Site.Menu = {
+  init: function() {
+    var _this = this;
+
+    _this.$header = $('#header');
+
+    $(document).scroll( function() {
+      if( $(this).scrollTop() > 0 ) {
+        _this.$header.addClass('stuck');
+      } else {
+        _this.$header.removeClass('stuck');
+      }
     });
   },
 };
