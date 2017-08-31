@@ -18,6 +18,10 @@ Site = {
         Site.Gallery.init();
       }
 
+      if ($('.js-hover-item').length) {
+        Site.HoverImages.init();
+      }
+
     });
 
   },
@@ -50,6 +54,47 @@ Site.Menu = {
         _this.$header.removeClass('stuck');
       }
     });
+  },
+};
+
+Site.HoverImages = {
+  init: function() {
+    var _this = this;
+
+    _this.hoverItems = $('.js-hover-item');
+
+    _this.bind();
+  },
+
+  bind: function() {
+    var _this = this;
+
+    _this.hoverItems.on({
+      'mouseover.hover': function() {
+        // handleIn
+
+        var $image = $(this).find('.hover-image');
+
+        $image.addClass('show');
+
+        $(window).on('mousemove.hover', function(event) {
+          $image.css({
+            'top': (event.pageY - this.pageYOffset) - $image.height() / 2,
+            'left': event.pageX -  ($image.width() / 2),
+          });
+        });
+
+      },
+      'mouseleave': function() {
+        // handleOut
+        var $image = $(this).find('.hover-image');
+
+        $image.removeClass('show');
+
+        $(window).off('mouseover.hover');
+      }
+    });
+
   },
 };
 

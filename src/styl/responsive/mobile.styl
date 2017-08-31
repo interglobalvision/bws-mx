@@ -45,10 +45,15 @@ $header-transition = 200ms ease-in-out
 
 // FRONT
 
+.js-hover-item
+  display: block
+
 .hover-image
   opacity: 0
   position: fixed
   z-index: -100
+
+  transition: top 20ms linear, left 20ms linear
   &.show
     opacity: .5
 
