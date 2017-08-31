@@ -70,6 +70,7 @@ function igv_register_theme_options_metabox() {
     'name'    => esc_html__( 'Strapline', 'cmb2' ),
     'id'      => 'header_strapline',
     'type'    => 'text',
+    'repeatable' => true
   ) );
 
   // Contact variables
