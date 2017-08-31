@@ -20,12 +20,12 @@ if (have_posts()) {
 
     <section class="container">
 
-      <div class="grid-row align-items-end margin-bottom-mid">
-        <div class="grid-item item-s-12 item-m-6 item-l-7 flex-grow">
+      <div class="grid-row align-items-end margin-bottom-basic">
+        <div class="grid-item item-s-12 item-m-10 item-l-7 flex-grow margin-bottom-basic">
           <?php the_post_thumbnail('item-l-7'); ?>
         </div>
 
-        <div class="grid-item item-s-12 item-m-6 item-l-4 offset-l-1">
+        <div id="information-text" class="grid-item item-s-12 item-m-10 text-columns text-columns-m-2 text-columns-l-1 item-l-4 offset-l-1 margin-bottom-basic font-size-tiny">
           <?php the_content(); ?>
         </div>
       </div>
@@ -34,8 +34,8 @@ if (have_posts()) {
 
     <section class="container">
 
-      <div class="grid-row font-sans">
-        <div class="grid-item item-s-12 item-m-6 item-l-4 flex-grow">
+      <div class="grid-row font-sans font-size-tiny">
+        <div class="grid-item item-s-12 item-m-4 item-l-4 flex-grow margin-bottom-basic">
 <?php
     if (!empty($address)) {
 ?>
@@ -45,7 +45,7 @@ if (have_posts()) {
     }
 ?>
         </div>
-        <div class="grid-item item-s-12 item-m-6 item-l-4 flex-grow">
+        <div class="grid-item item-s-12 item-m-4 item-l-4 flex-grow margin-bottom-basic">
 <?php
     if (!empty($hours)) {
 ?>
@@ -55,13 +55,13 @@ if (have_posts()) {
     }
 ?>
         </div>
-        <div class="grid-item item-s-12 item-l-4">
+        <div class="grid-item item-s-12 item-m-4 item-l-4">
 <?php
     if (!empty($staff)) {
       foreach($staff as $member) {
 ?>
           <div class="margin-bottom-small">
-            <h2 class="font-serif"><?php echo $member['name']; ?></h2>
+            <h2 class="font-serif font-size-small"><?php echo $member['name']; ?></h2>
             <?php echo $member['role']; ?>
           </div>
 <?php
