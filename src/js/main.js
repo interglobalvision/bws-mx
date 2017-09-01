@@ -22,6 +22,10 @@ Site = {
         Site.HoverImages.init();
       }
 
+      if ($('#mc_embed_signup').length) {
+        Site.Mailchimp.init();
+      }
+
     });
 
   },
@@ -162,6 +166,34 @@ Site.Gallery = {
       }
     });
   }
+};
+
+Site.Mailchimp = {
+  init: function() {
+    var _this = this;
+
+    _this.insertPlaceholders();
+    _this.rebuildMarkup();
+  },
+
+  insertPlaceholders: function() {
+    $('.mc-field-group').each(function() {
+      var label = $(this).find('label').text();
+
+      // remove asterisks and ending whitespace
+      placeholder = label.replace(/\*/g, '').replace(/\s*$/,'');
+
+      $(this).find('input').attr('placeholder', placeholder);
+    });
+  },
+
+  rebuildMarkup: function() {
+    var $parent = $('#mc_embed_signup_scroll');
+
+    $parent.children().not('.clear').wrapAll('<div id="mc-inputs" class="grid-item" />');
+    $parent.children('.clear').removeClass('clear').addClass('grid-item');
+
+  },
 };
 
 Site.init();
