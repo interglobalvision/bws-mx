@@ -33,14 +33,14 @@ get_template_part('partials/seo');
       <div class="grid-row padding-top-tiny padding-bottom-tiny align-items-end">
 
         <div class="grid-item item-m-3 item-l-7 item-xl-8 grid-row no-gutter align-items-end">
-          <h1 id="header-logo" class="grid-item item-l-4 item-xl-2 font-logo font-size-extra"><a href="<?php echo home_url(); ?>">BWSMX</a></h1>
+          <h1 id="header-logo" class="grid-item font-logo font-size-extra"><a href="<?php echo home_url(); ?>">BWSMX</a></h1>
 
 <?php
   $options = get_site_option('_igv_site_options');
 
   if (!empty($options['header_strapline'])) {
 ?>
-          <div id="strapline" class="grid-item item-l-8 item-xl-10 font-serif font-italic font-size-mid desktop-only">
+          <div id="strapline" class="grid-item flex-grow font-serif font-italic font-size-mid desktop-only">
             <?php
               echo $options['header_strapline'][array_rand($options['header_strapline'], 1)] . ', ';
               _e('[:en]Mexico City[:es]Ciudad de México[:]');
