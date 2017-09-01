@@ -183,6 +183,7 @@ Site.Mailchimp = {
       // remove asterisks and ending whitespace
       placeholder = label.replace(/\*/g, '').replace(/\s*$/,'');
 
+      // use new placeholder text for inputs
       $(this).find('input').attr('placeholder', placeholder);
     });
   },
@@ -190,9 +191,9 @@ Site.Mailchimp = {
   rebuildMarkup: function() {
     var $parent = $('#mc_embed_signup_scroll');
 
+    // wrap mailchimp elements in grid-item
     $parent.children().not('.clear').wrapAll('<div id="mc-inputs" class="grid-item" />');
     $parent.children('.clear').removeClass('clear').addClass('grid-item');
-
   },
 };
 
