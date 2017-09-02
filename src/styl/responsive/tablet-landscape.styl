@@ -1,8 +1,9 @@
+$header-height = 81px
+
+$footer-height = 157px
 $footer-logo-size = 36px
 
 // HEADER
-
-$header-height = 81px
 
 #header
   font-size: $font-size-basic
@@ -25,6 +26,7 @@ $header-height = 81px
 
 #main-content
   margin-top: $header-height
+  min-height: calc('100vh - ' + ($header-height + $footer-height))
 
 // ******************************************************
 

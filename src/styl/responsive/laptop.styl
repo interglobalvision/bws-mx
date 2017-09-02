@@ -1,7 +1,14 @@
+$header-height = 81px
+
+$footer-height = 161px
+
 // HEADER
 
 #header
   font-size: $font-size-basic
+
+#main-content
+  min-height: calc('100vh - ' + ($header-height + $footer-height))
 
 // ******************************************************
 

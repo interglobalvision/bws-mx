@@ -1,7 +1,8 @@
-$footer-logo-size = 21px
-
 $header-height = 44px
 $header-transition = 200ms ease-in-out
+
+$footer-height = 198px
+$footer-logo-size = 21px
 
 .border-top-white
   border-top: 1px solid $color-white
@@ -45,6 +46,7 @@ $header-transition = 200ms ease-in-out
 
 #main-content
   margin-top: $header-height
+  min-height: calc('100vh - ' + ($header-height + $footer-height))
 
 // ******************************************************
 
@@ -124,6 +126,9 @@ $header-transition = 200ms ease-in-out
 // ******************************************************
 
 // FOOTER
+
+#footer
+  background-color: $color-grey
 
 #footer-logo
   line-height: 1
