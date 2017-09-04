@@ -181,7 +181,7 @@ Site.Mailchimp = {
       var label = $(this).find('label').text();
 
       // remove asterisks and ending whitespace
-      placeholder = label.replace(/\*/g, '').replace(/\s*$/,'');
+      var placeholder = label.replace(/\*/g, '').replace(/\s*$/,'');
 
       // use new placeholder text for inputs
       $(this).find('input').attr('placeholder', placeholder);
