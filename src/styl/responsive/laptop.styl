@@ -1,4 +1,21 @@
+$header-height = 81px
+
+$footer-height = 161px
+
 // HEADER
 
 #header
   font-size: $font-size-basic
+
+#main-content
+  min-height: calc('100vh - ' + ($header-height + $footer-height))
+
+// ******************************************************
+
+// MAILCHIMP
+
+#mc_embed_signup
+  input
+    font-size: $font-size-tiny
+
+// ******************************************************

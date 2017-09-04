@@ -28,17 +28,17 @@
           </div>
         </div>
 
-        <div class="grid-item item-s-6 item-m-auto item-l-6 margin-bottom-small">
-        <?php
-          if (!empty($options['contact_mailchimp'])) {
-            echo $options['contact_mailchimp'];
-          } else {
-            echo 'maiaiilllchiiiimppppp';
-          }
-        ?>
+        <div class="grid-item item-s-12 item-m-auto item-l-6 margin-bottom-small no-gutter">
+          <div>
+            <?php
+              if (!empty($options['contact_mailchimp'])) {
+                echo $options['contact_mailchimp'];
+              }
+            ?>
+          </div>
         </div>
 
-        <div id="social-icons" class="grid-item item-s-6 item-m-auto item-l-2 margin-bottom-small">
+        <div id="social-icons" class="grid-item item-s-12 item-m-auto item-l-2 margin-bottom-small">
           <ul class="u-inline-list">
           <?php
             if (!empty($options['socialmedia_instagram'])) {

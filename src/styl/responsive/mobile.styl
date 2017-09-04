@@ -1,7 +1,8 @@
-$footer-logo-size = 21px
-
 $header-height = 44px
 $header-transition = 200ms ease-in-out
+
+$footer-height = 198px
+$footer-logo-size = 21px
 
 .border-top-white
   border-top: 1px solid $color-white
@@ -45,6 +46,7 @@ $header-transition = 200ms ease-in-out
 
 #main-content
   margin-top: $header-height
+  min-height: calc('100vh - ' + ($header-height + $footer-height))
 
 // ******************************************************
 
@@ -125,6 +127,9 @@ $header-transition = 200ms ease-in-out
 
 // FOOTER
 
+#footer
+  background-color: $color-grey
+
 #footer-logo
   line-height: 1
   font-size: $footer-logo-size
@@ -134,3 +139,40 @@ $header-transition = 200ms ease-in-out
   margin-right: 12px
   path
     fill: $color-blue
+
+// ******************************************************
+
+// MAILCHIMP
+
+#mc_embed_signup
+  font-family: $font-sans
+  #mc_embed_signup_scroll
+    display: flex
+    flex-direction: grid-row
+    align-items: flex-end
+  #mce-responses
+    order: 1
+  h2,
+  .indicates-required,
+  label
+    display: none
+
+  input
+    appearance: none
+    color: $color-blue
+    font-family: $font-sans
+    font-size: $font-size-tiny
+    padding: 3px 4px 2px
+    margin-bottom: $margin-tiny
+
+  .mc-field-group
+    font-size: 0
+    input
+      background-color: $color-white
+      border: 1px solid $color-blue
+
+  input[type=submit]
+    background-color: transparent
+    border: 0
+    font-weight: bold
+    cursor: pointer
