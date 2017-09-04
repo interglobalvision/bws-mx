@@ -64,6 +64,14 @@ $footer-logo-size = 21px
   &.show
     opacity: .5
 
+.font-location-bwsmx
+  font-family: $font-logo
+  font-size: .95rem
+
+.font-location-ruberta
+  font-family: $font-ruberta
+  font-size: .9rem
+
 // ******************************************************
 
 // GALLERY
@@ -87,7 +95,8 @@ $footer-logo-size = 21px
 
 .swiper-slide
   img
-    height: auto
+    height: 40vw
+    width: auto
 
 .slider-switch
   display: inline-block
@@ -96,12 +105,28 @@ $footer-logo-size = 21px
     cursor: default
     pointer-events: none
     font-style: italic
+  &:first-of-type
+    margin-right: $margin-small
 
 .slider-buttons
   display: none
   cursor: pointer
   &.active
-    display: initial
+    display: inline-block
+
+.slider-button
+  &:first-of-type
+    margin-right: $margin-small
+  svg
+    height: .8rem
+    path
+      fill: $color-blue
+
+.slide-caption
+  display: block
+
+.slider-controls-caption
+  display: none
 
 // ******************************************************
 
