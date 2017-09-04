@@ -51,7 +51,7 @@ function event_date_location($post_id) {
 
   if ($location_terms) {
     $location = $location_terms[0]->name;
-    $location_class = '.location-' . $location_terms[0]->slug;
+    $location_class = 'font-location-' . $location_terms[0]->slug;
     $city = get_term_meta($location_terms[0]->term_id, '_igv_location_city', true);
 
     $date_location .= '[:en]at[:es]en[:] <span class="' . $location_class . '">' . $location . '</span>';
@@ -166,28 +166,30 @@ function render_related_by_artists($current_post_id) {
 
   if ($related->have_posts()) {
 ?>
-  <section id="related-holder" class="container margin-bottom-mid">
-    <div id="related-row" class="grid-row">
+  <section id="related-holder" class="margin-bottom-basic padding-top-basic border-top-white">
+    <div class="container">
+      <div id="related-row" class="grid-row">
 <?php
     while ($related->have_posts()) {
       $related->the_post();
 
       $post_type = get_post_type();
 ?>
-      <article <?php post_class('grid-item related-item'); ?> id="post-<?php the_ID(); ?>">
-        <a href="<?php the_permalink() ?>">
-          <?php
-            if ($post_type == 'event') {
-              get_template_part('partials/related-event');
-            } else if ($post_type == 'work') {
-              get_template_part('partials/related-work');
-            }
-          ?>
-        </a>
-      </article>
+        <article <?php post_class('grid-item related-item'); ?> id="post-<?php the_ID(); ?>">
+          <a href="<?php the_permalink() ?>">
+            <?php
+              if ($post_type == 'event') {
+                get_template_part('partials/related-event');
+              } else if ($post_type == 'work') {
+                get_template_part('partials/related-work');
+              }
+            ?>
+          </a>
+        </article>
 <?php
     }
 ?>
+      </div>
     </div>
   </section>
 <?php
