@@ -166,7 +166,7 @@ function render_related_by_artists($current_post_id) {
 
   if ($related->have_posts()) {
 ?>
-  <section id="related-holder" class="margin-bottom-basic padding-top-basic border-top-white">
+  <section id="related-holder" class="margin-bottom-mid padding-top-basic border-top-white">
     <div class="container">
       <div id="related-row" class="grid-row">
 <?php
