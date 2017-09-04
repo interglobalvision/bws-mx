@@ -13,6 +13,7 @@ if (have_posts()) {
     $event_cats = wp_get_post_terms($post->ID, 'event_cat');
     $event_artists = igv_get_post_artists($post->ID);
     $event_date_location = event_date_location($post->ID);
+    $event_pdf = get_post_meta($post->ID, '_igv_event_pdf', true);
 ?>
     <header class="container">
       <div class="grid-row margin-bottom-basic">
@@ -48,6 +49,13 @@ if (have_posts()) {
       <div class="grid-row margin-bottom-mid">
         <div id="event-text-holder" class="grid-item item-s-12 text-columns text-columns-l-3 font-size-tiny">
           <?php the_content(); ?>
+<?php
+      if (!empty($event_pdf)) {
+?>
+          <div class="text-align-right padding-top-tiny"><a class="link-underline" href="<?php echo $event_pdf; ?>"><?php _e('[:en]Download Press PDF[:es]Descargar PDF de Prensa[:]'); ?></a></div>
+<?php
+      }
+?>
         </div>
       </div>
     </section>
