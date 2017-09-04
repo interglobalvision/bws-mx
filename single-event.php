@@ -46,7 +46,7 @@ if (have_posts()) {
 
     <section class="container">
       <div class="grid-row margin-bottom-mid">
-        <div class="grid-item item-s-12 text-columns text-columns-s-1 text-columns-m-2 text-columns-l-3 font-size-tiny">
+        <div id="event-text-holder" class="grid-item item-s-12 text-columns text-columns-l-3 font-size-tiny">
           <?php the_content(); ?>
         </div>
       </div>
