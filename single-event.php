@@ -16,11 +16,11 @@ if (have_posts()) {
 ?>
     <header class="container">
       <div class="grid-row margin-bottom-basic">
-        <div class="grid-item item-s-12 item-l-6">
+        <div class="grid-item item-s-12 item-m-8">
 <?php
       if (!empty($event_cats)) {
 ?>
-          <div class="font-sans margin-bottom-basic"><?php echo $event_cats[0]->name; ?></div>
+          <div class="font-sans margin-bottom-basic font-light font-size-tiny"><?php echo $event_cats[0]->name; ?></div>
 <?php
       }
 ?>
@@ -46,7 +46,7 @@ if (have_posts()) {
 
     <section class="container">
       <div class="grid-row margin-bottom-basic">
-        <div class="grid-item item-s-12 text-columns text-columns-s-1 text-columns-m-2 text-columns-l-3">
+        <div class="grid-item item-s-12 text-columns text-columns-s-1 text-columns-m-2 text-columns-l-3 font-size-tiny">
           <?php the_content(); ?>
         </div>
       </div>
