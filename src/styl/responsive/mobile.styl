@@ -90,12 +90,19 @@ $footer-logo-size = 21px
     pointer-events: auto
     overflow: visible
 
-.swiper-container
+.slick-container
   overflow: visible
 
-.swiper-slide
+.slick-slide
+  margin: 0 $margin-small
+  opacity: .5
+  &.slick-active
+    opacity: 1
+  &:focus
+    outline: 0
   img
-    height: 40vw
+    max-width: 90vw
+    height: 50vw
     width: auto
 
 .slider-switch
