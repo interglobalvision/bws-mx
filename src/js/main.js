@@ -14,7 +14,7 @@ Site = {
 
       Site.Menu.init();
 
-      if ($('.swiper-container').length) {
+      if ($('.slick-container').length) {
         Site.Gallery.init();
       }
 
@@ -107,49 +107,57 @@ Site.Gallery = {
     var _this = this;
 
     if ($('#slider-holder-install').length) {
-      _this.initSwiper('install');
+      _this.initSlick('install');
     }
     if ($('#slider-holder-works').length) {
-      _this.initSwiper('works');
+      _this.initSlick('works');
     }
 
     _this.bindSwitch();
   },
 
-  initSwiper: function(type) {
+  initSlick: function(type) {
     var _this = this;
 
-    new Swiper ('#swiper-' + type, {
-      loop: true,
-      slidesPerView: 'auto',
-      loopedSlides: 5,
-      spaceBetween: 0,
-      centeredSlides: true,
-      slideToClickedSlide: true,
-      nextButton: '.slider-next-' + type,
-      prevButton: '.slider-prev-' + type,
-      onTap: function(swiper) {
-        swiper.slideNext();
+    $('#slick-' + type).on({
+      init: function(event, slick, currentSlide) {
+        _this.updateCaption(0);
       },
-      onInit: function(swiper) {
-        _this.updateCaption(swiper.realIndex);
+      beforeChange: function(event, slick, currentSlide) {
+        _this.clearCaption();
       },
-      onSlideChangeEnd: function(swiper) {
-        _this.updateCaption(swiper.realIndex);
-      },
+      afterChange: function(event, slick, currentSlide) {
+        _this.updateCaption(currentSlide);
+      }
+    }).slick({
+      dots: false,
+      arrows: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      centerMode: true,
+      variableWidth: true,
+      focusOnSelect: true,
+      nextArrow: '.slider-next-' + type,
+      prevArrow: '.slider-prev-' + type,
     });
+
   },
 
   updateCaption: function(activeIndex) {
     // Update caption in slider control row
     // from '.slide-caption' elem in active slide
-    var caption = $('.slider-holder.active .swiper-slide[data-swiper-slide-index="' + activeIndex + '"] .slide-caption').html();
+    var caption = $('.slider-holder.active .slick-slide[data-slick-index="' + activeIndex + '"] .slide-caption').html();
 
     if (!caption) {
       caption = '';
     }
 
     $('.slider-controls-caption').html(caption);
+  },
+
+  clearCaption: function() {
+    $('.slider-controls-caption').html('');
   },
 
   bindSwitch: function() {
