@@ -5,23 +5,23 @@ $work_artists = igv_get_post_artists($post->ID);
 
 if (!empty($work_cats)) {
 ?>
-  <div class="font-sans"><?php echo $work_cats[0]->name; ?></div>
+  <div class="font-sans font-size-tiny font-light margin-bottom-basic"><?php echo $work_cats[0]->name; ?></div>
 <?php
 }
 ?>
 
-  <h3 class="font-serif font-italic"><?php the_title(); ?></h2>
+  <h3 class="font-serif font-italic font-size-mid"><?php the_title(); ?></h2>
 
 <?php
 if (!empty($work_artists)) {
 ?>
-  <div class="font-serif"><?php echo $work_artists; ?></div>
+  <div class="font-serif font-size-small"><?php echo $work_artists; ?></div>
 <?php
 }
 
 if (!empty($work_info)) {
 ?>
-  <div class="font-sans margin-top-small"><?php echo $work_info; ?></div>
+  <div class="font-sans margin-top-small font-size-tiny"><?php echo $work_info; ?></div>
 <?php
 }
 ?>

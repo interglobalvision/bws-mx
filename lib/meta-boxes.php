@@ -72,6 +72,18 @@ function igv_cmb_metaboxes() {
     'type' => 'checkbox',
   ) );
 
+  $event_metabox->add_field( array(
+    'name' => esc_html__( 'Press PDF English', 'cmb2' ),
+    'id'   => $prefix . 'event_pdf_en',
+    'type' => 'file',
+  ) );
+
+  $event_metabox->add_field( array(
+    'name' => esc_html__( 'Press PDF Español', 'cmb2' ),
+    'id'   => $prefix . 'event_pdf_es',
+    'type' => 'file',
+  ) );
+
 
   // WORK
 
