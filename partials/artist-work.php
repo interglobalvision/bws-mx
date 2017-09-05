@@ -3,9 +3,11 @@ $work_info = get_post_meta($post->ID, '_igv_work_info', true);
 $work_artists = igv_get_post_artists($post->ID);
 ?>
 
-<a href="<?php the_permalink(); ?>">
+<a href="<?php the_permalink(); ?>" class="font-size-tiny">
 
-  <?php the_post_thumbnail('item-l-4'); ?>
+  <div class="artist-work-thumb-holder margin-bottom-small">
+    <?php the_post_thumbnail('item-l-4'); ?>
+  </div>
 
 <?
 if (!empty($work_artists)) {
@@ -27,6 +29,6 @@ if (!empty($work_info)) {
 
 </a>
 
-<div class="margin-top-small font-sans">
+<div class="margin-top-small font-sans font-size-tiny">
   <a href="<?php the_permalink(); ?>" class="link-underline"><?php _e('[:en]Learn more[:es]Más info[:]'); ?></a>
 </div>
