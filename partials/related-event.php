@@ -5,12 +5,12 @@ $event_date_location = event_date_location($post->ID);
 
 if (!empty($event_cats)) {
 ?>
-  <div class="font-sans"><?php echo $event_cats[0]->name; ?></div>
+  <div class="font-sans font-light font-size-tiny"><?php echo $event_cats[0]->name; ?></div>
 <?php
 }
 ?>
 
-  <h3 class="font-serif font-italic"><?php the_title(); ?></h2>
+  <h3 class="font-serif font-italic font-size-mid"><?php the_title(); ?></h2>
 
 <?php
 if (!empty($event_artists)) {
@@ -21,7 +21,7 @@ if (!empty($event_artists)) {
 
 if (!empty($event_date_location)) {
 ?>
-  <div class="font-sans margin-top-small"><?php _e($event_date_location); ?></div>
+  <div class="font-sans margin-top-small font-size-tiny"><?php _e($event_date_location); ?></div>
 <?php
 }
 ?>
