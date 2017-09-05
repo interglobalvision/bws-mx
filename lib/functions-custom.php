@@ -3,14 +3,18 @@
 // Custom functions (like special queries, etc)
 
 // Return string of Artists
-function igv_get_post_artists($post_id) {
+function igv_get_post_artists($post_id, $link = false) {
   $artist_terms = wp_get_post_terms($post_id, 'artist');
   $count_terms = count($artist_terms);
 
   $artists = '';
 
   for ($i=0; $i < $count_terms; $i++) {
-    $artists .= $artist_terms[$i]->name;
+    if ($link == true) {
+      $artists .= '<a href="' . get_term_link($artist_terms[$i]->term_taxonomy_id) . '">' . $artist_terms[$i]->name . '</a>';
+    } else {
+      $artists .= $artist_terms[$i]->name;
+    }
 
     if ($count_terms > 1 && ($i + 1) !== $count_terms) {
       if (($i + 2) === $count_terms) {
