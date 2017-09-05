@@ -24,8 +24,8 @@ $cv_post = get_posts(array(
         </div>
       </div>
       <div class="grid-row align-items-baseline">
-        <div class="grid-item item-s-10 item-m-8 item-l-7 item-xl-8 font-serif">
-          <h1><?php echo $term->name; ?></h1>
+        <div class="grid-item item-s-10 item-m-8 item-l-7 item-xl-8">
+          <h1 class="font-size-large font-serif"><?php echo $term->name; ?></h1>
         </div>
 <?php
 if ($cv_post) {
