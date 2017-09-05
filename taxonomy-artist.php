@@ -19,18 +19,18 @@ $cv_post = get_posts(array(
   <article id="taxonomy-archive">
     <header class="container margin-bottom-mid">
       <div class="grid-row margin-bottom-basic">
-        <div class="grid-item item-s-12">
+        <div class="grid-item item-s-12 font-size-tiny font-light">
           <h3>Artist</h3>
         </div>
       </div>
       <div class="grid-row align-items-end">
-        <div class="grid-item item-s-12 item-m-6">
+        <div class="grid-item item-s-12 item-m-6 font-serif">
           <h1><?php echo $term->name; ?></h1>
         </div>
 <?php
 if ($cv_post) {
 ?>
-        <div class="grid-item item-s-12 item-m-6">
+        <div class="grid-item item-s-12 item-m-6 font-bold">
           <a href="<?php echo get_the_permalink($cv_post[0]->ID); ?>">CV</a>
         </div>
 <?php
@@ -53,7 +53,7 @@ $events = new WP_Query(array(
 
 if ($events->have_posts()) {
 ?>
-    <section id="single-artist-events" class="container margin-bottom-basic">
+    <section id="single-artist-events" class="container margin-bottom-mid">
       <div class="grid-row">
 <?php
   while ($events->have_posts()) {
@@ -61,7 +61,8 @@ if ($events->have_posts()) {
 ?>
 
         <article <?php post_class('grid-item item-s-12 item-m-4 item-l-3'); ?> id="post-<?php the_ID(); ?>">
-          <a href="<?php the_permalink() ?>">
+          <a href="<?php the_permalink() ?>" class="js-hover-item">
+            <?php echo get_the_post_thumbnail($post->ID, 'hover-image', 'class=hover-image'); ?>
             <?php get_template_part('partials/related-event'); ?>
           </a>
         </article>
@@ -89,25 +90,27 @@ $works = new WP_Query(array(
 
 if ($works->have_posts()) {
 ?>
-    <section id="single-artist-works" class="container padding-top-basic top-border">
-      <div class="grid-row margin-bottom-small">
-        <div class="grid-item item-s-12">
-          <?php _e('[:en]Works[:es]Obras[:]'); ?>
+    <section id="single-artist-works" class="padding-top-basic border-top-white margin-bottom-mid">
+      <div class="container">
+        <div class="grid-row margin-bottom-basic">
+          <div class="grid-item item-s-12 font-size-tiny font-light">
+            <?php _e('[:en]Works[:es]Obras[:]'); ?>
+          </div>
         </div>
-      </div>
-      <div class="grid-row">
+        <div class="grid-row">
 <?php
   while ($works->have_posts()) {
     $works->the_post();
 ?>
-        <article <?php post_class('grid-item item-s-12 item-m-4'); ?> id="post-<?php the_ID(); ?>">
+          <article <?php post_class('grid-item item-s-12 item-m-4 margin-bottom-basic'); ?> id="post-<?php the_ID(); ?>">
 
-          <?php get_template_part('partials/artist-work'); ?>
+            <?php get_template_part('partials/artist-work'); ?>
 
-        </article>
+          </article>
 <?php
   }
 ?>
+        </div>
       </div>
     </section>
 <?php
