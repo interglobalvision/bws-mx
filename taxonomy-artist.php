@@ -23,14 +23,14 @@ $cv_post = get_posts(array(
           <h3>Artist</h3>
         </div>
       </div>
-      <div class="grid-row align-items-end">
-        <div class="grid-item item-s-12 item-m-6 font-serif">
+      <div class="grid-row align-items-baseline">
+        <div class="grid-item item-s-10 item-m-8 item-l-7 item-xl-8 font-serif">
           <h1><?php echo $term->name; ?></h1>
         </div>
 <?php
 if ($cv_post) {
 ?>
-        <div class="grid-item item-s-12 item-m-6 font-bold">
+        <div id="cv-link-holder" class="grid-item font-bold">
           <a href="<?php echo get_the_permalink($cv_post[0]->ID); ?>">CV</a>
         </div>
 <?php
