@@ -11,7 +11,7 @@ if (have_posts()) {
     the_post();
 
     $event_cats = wp_get_post_terms($post->ID, 'event_cat');
-    $event_artists = igv_get_post_artists($post->ID);
+    $event_artists = igv_get_post_artists($post->ID, true);
     $event_date_location = event_date_location($post->ID);
     $event_pdf_en = get_post_meta($post->ID, '_igv_event_pdf_en', true);
     $event_pdf_es = get_post_meta($post->ID, '_igv_event_pdf_es', true);

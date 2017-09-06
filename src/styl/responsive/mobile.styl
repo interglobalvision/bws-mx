@@ -7,6 +7,9 @@ $footer-logo-size = 21px
 .border-top-white
   border-top: 1px solid $color-white
 
+.background-grey
+  background-color: $color-grey
+
 // HEADER
 
 #header
@@ -14,14 +17,13 @@ $footer-logo-size = 21px
   width: 100vw
   top: 0
   left: 0
-  background-color: $color-grey
   font-size: 14px
   z-index: 1000
   &.stuck
+    background-color: $color-grey
     border-bottom: 1px solid $color-white
     #header-logo
       font-size: $footer-logo-size
-      margin-bottom: 0
     #strapline
       transform: translateY(-200px)
 
@@ -29,8 +31,6 @@ $footer-logo-size = 21px
   transition: transform $header-transition
 
 #header-logo
-  line-height: 1
-  margin-bottom: -2px
   transition: font-size $header-transition, margin-bottom $header-transition
 
 #main-nav
@@ -59,7 +59,9 @@ $footer-logo-size = 21px
   opacity: 0
   position: fixed
   z-index: -100
-
+  max-width: 200px
+  max-height: 200px
+  width: auto
   transition: top 20ms linear, left 20ms linear
   &.show
     opacity: .5
@@ -165,6 +167,19 @@ $footer-logo-size = 21px
 
 // ******************************************************
 
+// TAXONOMY ARTIST
+
+.artist-work-thumb-holder
+  position: relative
+  height: 90vw
+  img
+    max-height: 100%
+    width: auto
+    position: absolute
+    bottom: 0
+
+// ******************************************************
+
 // FOOTER
 
 #footer
@@ -231,7 +246,8 @@ $footer-logo-size = 21px
     font-weight: 300
     font-family: $font-sans
     margin: .8rem 0 .3rem
-  p, li
+  p,
+  li
     font-weight: normal
     font-family: $font-serif
     margin-bottom: .3rem

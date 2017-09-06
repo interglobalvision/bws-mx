@@ -30,9 +30,9 @@ get_template_part('partials/seo');
 
   <header id="header">
     <div class="container">
-      <div class="grid-row padding-top-tiny padding-bottom-tiny align-items-end">
+      <div class="grid-row padding-top-tiny padding-bottom-tiny align-items-baseline">
 
-        <div class="grid-item item-m-3 item-l-7 item-xl-8 grid-row no-gutter align-items-end">
+        <div class="grid-item item-m-3 item-l-7 item-xl-8 grid-row no-gutter align-items-baseline">
           <h1 id="header-logo" class="grid-item font-logo font-size-extra"><a href="<?php echo home_url(); ?>">BWSMX</a></h1>
 
 <?php
