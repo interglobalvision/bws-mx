@@ -27,7 +27,7 @@ if (have_posts()) {
       }
 ?>
 
-          <h1 class="font-serif font-italic"><?php echo get_the_title($post->ID); ?></h1>
+          <h1 class="font-serif font-italic font-size-large"><?php echo get_the_title($post->ID); ?></h1>
 
 <?php
       if (!empty($event_artists)) {

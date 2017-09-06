@@ -32,7 +32,7 @@ if ($posts) {
 <?php
       if (!empty($event_cats)) {
 ?>
-          <div class="font-sans font-size-tiny margin-bottom-basic"><?php echo $event_cats[0]->name; ?></div>
+          <div class="font-sans font-size-tiny font-light margin-bottom-basic"><?php echo $event_cats[0]->name; ?></div>
 <?php
       }
 ?>
@@ -102,7 +102,7 @@ if ($posts) {
 <?php
       if ($work_cats) {
 ?>
-          <div class="font-sans font-size-tiny margin-bottom-basic"><?php echo $work_cats[0]->name; ?></div>
+          <div class="font-sans font-size-tiny font-light margin-bottom-basic"><?php echo $work_cats[0]->name; ?></div>
 <?php
       }
 ?>
