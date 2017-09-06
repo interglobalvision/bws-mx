@@ -14,19 +14,21 @@ if (have_posts()) {
 
     if (count($artists)) {
 ?>
-    <header class="container">
+    <header class="container margin-bottom-mid">
       <div class="grid-row">
         <div class="grid-item">
 
-          <h3 class="margin-bottom-small"><a href="<?php echo get_term_link($artists[0]); ?>">Artist</a> / CV</h3>
-          <h1 class="margin-bottom-basic"><?php echo $artists[0]->name; ?></h1>
+          <div class="font-size-tiny font-light margin-bottom-basic"><a class="link-underline" href="<?php echo get_term_link($artists[0]); ?>">Artist</a>&emsp;/&emsp;CV</div>
+
+          <h1 class="font-serif font-size-large"><?php echo $artists[0]->name; ?></h1>
 
         </div>
       </div>
+    </header>
 
     <section class="container">
       <div class="grid-row">
-        <div class="grid-item item-s-12 item-m-10 item-l-8">
+        <div id="cv-content-holder" class="grid-item item-s-12 item-m-10 item-l-8 font-size-tiny">
 
           <?php the_content(); ?>
 
