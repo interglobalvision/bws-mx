@@ -15,47 +15,48 @@ if (have_posts()) {
     $work_details = get_post_meta($post->ID, '_igv_work_details', true);
 ?>
 
-    <header class="container">
-      <div class="grid-row margin-bottom-basic">
+    <header class="container margin-bottom-basic">
 <?php
       if (!empty($work_cats)) {
 ?>
-        <div class="grid-item item-s-12 font-sans margin-bottom-basic">
+      <div class="grid-row margin-bottom-basic">
+        <div class="grid-item font-sans font-size-tiny font-light">
           <?php echo $work_cats[0]->name; ?>
         </div>
+      </div>
 <?php
       }
-?>
-        <div class="grid-item item-s-10 item-l-6">
-          <h1 class="font-serif font-italic"><?php echo get_the_title($post->ID); ?></h1>
 
-<?php
       if (!empty($work_artists)) {
 ?>
-          <div class="font-serif"><?php echo $work_artists; ?></div>
+      <div class="grid-row">
+        <div class="grid-item font-serif"><?php echo $work_artists; ?></div>
+      </div>
 <?php
       }
 ?>
+      <div class="grid-row align-items-baseline">
+        <div class="grid-item item-s-10 item-l-7 item-xl-8">
+          <h1 class="font-serif font-italic"><?php echo get_the_title($post->ID); ?></h1>
         </div>
-        <div class="grid-item item-s-2 item-l-6 text-align-right">
+        <div class="grid-item font-bold font-size-small">
           Inquire
         </div>
       </div>
     </header>
 
     <section class="container">
-
       <div class="grid-row margin-bottom-basic">
 <?php
       if (!empty($work_details)) {
 ?>
-        <div class="grid-item item-s-12 item-l-4 font-sans">
+        <div class="grid-item item-s-12 item-m-6 item-l-4 font-sans font-size-small">
           <?php echo apply_filters('the_content', $work_details); ?>
         </div>
 <?php
       }
 ?>
-        <div class="grid-item item-s-12 item-l-4 <?php echo empty($work_details) ? 'offset-l-4' : ''; ?> font-serif">
+        <div class="grid-item item-s-12 item-m-6 item-l-4 <?php echo empty($work_details) ? 'offset-l-4' : ''; ?> font-sans font-size-tiny">
           <?php the_content(); ?>
         </div>
       </div>
