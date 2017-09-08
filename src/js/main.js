@@ -6,6 +6,8 @@ Site = {
   init: function() {
     var _this = this;
 
+    _this.$sliderHolder = $('.slider-holder');
+
     $(window).resize(function(){
       _this.onResize();
     });
@@ -32,6 +34,10 @@ Site = {
 
   onResize: function() {
     var _this = this;
+
+    if (_this.$sliderHolder.length) {
+      Site.Gallery.updateCaption();
+    }
 
   },
 
@@ -147,7 +153,11 @@ Site.Gallery = {
   updateCaption: function(activeIndex) {
     // Update caption in slider control row
     // from '.slide-caption' elem in active slide
-    var caption = $('.slider-holder.active .slick-slide[data-slick-index="' + activeIndex + '"] .slide-caption').html();
+    if (activeIndex) {
+      var caption = $('.slider-holder.active .slick-slide[data-slick-index="' + activeIndex + '"] .slide-caption').html();
+    } else {
+      var caption = $('.slider-holder.active .slick-active .slide-caption').html();
+    }
 
     if (!caption) {
       caption = '';
@@ -161,6 +171,8 @@ Site.Gallery = {
   },
 
   bindSwitch: function() {
+    var _this = this;
+
     // Bind 'Installation View' / 'Works' slider toggle
     $('.slider-switch').on('click', function() {
       if (!$(this).hasClass('.active')) {
@@ -169,6 +181,8 @@ Site.Gallery = {
         $('.slider-switch, .slider-holder, .slider-buttons').removeClass('active');
         $(this).addClass('active');
         $('#slider-holder-' + type + ', #slider-buttons-' + type).addClass('active');
+
+        _this.updateCaption();
       } else {
         return;
       }
