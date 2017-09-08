@@ -236,5 +236,59 @@ function igv_cmb_metaboxes() {
     ),
   ) );
 
+
+  // ATTACHMENTS
+
+  $attachment_metabox = new_cmb2_box( array(
+    'id'            => $prefix . 'attachment_metabox',
+    'title'         => esc_html__( 'Options', 'cmb2' ),
+    'object_types'  => array( 'attachment' ), // Post type
+  ) );
+
+  $attachment_metabox->add_field( array(
+    'name'        => __( 'Related Work' ),
+    'id'          => $prefix . 'attachment_work',
+    'type'        => 'post_search_text',
+    'post_type'   => 'work',
+    'select_type' => 'radio',
+    'select_behavior' => 'replace',
+  ) );
+
+  $attachment_metabox->add_field( array(
+    'name' => esc_html__( 'Default Caption', 'cmb2' ),
+    'id'   => $prefix . 'caption_default',
+    'type' => 'textarea',
+    'attributes' => array(
+      'data-cmb2-qtranslate' => true,
+    ),
+  ) );
+
+  $attachment_metabox->add_field( array(
+    'name' => esc_html__( 'Event Caption', 'cmb2' ),
+    'id'   => $prefix . 'caption_event',
+    'type' => 'textarea',
+    'attributes' => array(
+      'data-cmb2-qtranslate' => true,
+    ),
+  ) );
+
+  $attachment_metabox->add_field( array(
+    'name' => esc_html__( 'Work Caption', 'cmb2' ),
+    'id'   => $prefix . 'caption_work',
+    'type' => 'textarea',
+    'attributes' => array(
+      'data-cmb2-qtranslate' => true,
+    ),
+  ) );
+
+  $attachment_metabox->add_field( array(
+    'name' => esc_html__( 'Artist Caption', 'cmb2' ),
+    'id'   => $prefix . 'caption_artist',
+    'type' => 'textarea',
+    'attributes' => array(
+      'data-cmb2-qtranslate' => true,
+    ),
+  ) );
+
 }
 ?>
