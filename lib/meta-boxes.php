@@ -49,6 +49,7 @@ function igv_cmb_metaboxes() {
 
   $event_metabox->add_field( array(
     'name' => esc_html__( 'Show on Home', 'cmb2' ),
+    'desc' => esc_html__( 'List event on home page', 'cmb2' ),
     'id'   => $prefix . 'event_show_home',
     'type' => 'checkbox',
     'column'  => true,
@@ -56,6 +57,7 @@ function igv_cmb_metaboxes() {
 
   $event_metabox->add_field( array(
     'name' => esc_html__( 'Start Date', 'cmb2' ),
+    'desc' => esc_html__( 'Required', 'cmb2' ),
     'id'   => $prefix . 'event_start_date',
     'type' => 'text_date_timestamp',
   ) );
@@ -68,12 +70,14 @@ function igv_cmb_metaboxes() {
 
   $event_metabox->add_field( array(
     'name' => esc_html__( 'Show dates', 'cmb2' ),
+    'desc' => esc_html__( 'If unchecked: event date(s) will not appear', 'cmb2' ),
     'id'   => $prefix . 'event_show_dates',
     'type' => 'checkbox',
   ) );
 
   $event_metabox->add_field( array(
     'name' => esc_html__( 'Press PDF English', 'cmb2' ),
+    'desc' => esc_html__( 'Both English and Español PDFs are required for PDF link to appear. If 1 PDF for both: use same PDF for both fields.', 'cmb2' ),
     'id'   => $prefix . 'event_pdf_en',
     'type' => 'file',
   ) );
@@ -95,6 +99,7 @@ function igv_cmb_metaboxes() {
 
   $work_metabox->add_field( array(
     'name' => esc_html__( 'Show on Home', 'cmb2' ),
+    'desc' => esc_html__( 'List work on home page', 'cmb2' ),
     'id'   => $prefix . 'work_show_home',
     'type' => 'checkbox',
     'column'  => true,
@@ -108,6 +113,7 @@ function igv_cmb_metaboxes() {
 
   $work_metabox->add_field( array(
     'name' => esc_html__( 'Year, Material, Dimensions', 'cmb2' ),
+    'desc' => esc_html__( 'Appears on work page', 'cmb2' ),
     'id'   => $prefix . 'work_details',
     'type' => 'textarea',
     'attributes' => array(
@@ -117,6 +123,7 @@ function igv_cmb_metaboxes() {
 
   $work_metabox->add_field( array(
     'name' => esc_html__( 'Additional info', 'cmb2' ),
+    'desc' => esc_html__( 'Appears on home, archive, related posts, & artist page', 'cmb2' ),
     'id'   => $prefix . 'work_info',
     'type' => 'textarea',
     'attributes' => array(
