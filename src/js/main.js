@@ -35,10 +35,6 @@ Site = {
   onResize: function() {
     var _this = this;
 
-    if (_this.$sliderHolder.length) {
-      Site.Gallery.updateCaption();
-    }
-
   },
 
   fixWidows: function() {
