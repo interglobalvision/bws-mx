@@ -67,7 +67,7 @@ function igv_register_theme_options_metabox() {
   ) );
 
   $site_options->add_field( array(
-    'name'    => esc_html__( 'Brett\'s Names, 'cmb2' ),
+    'name'    => esc_html__( 'Brett\'s Names', 'cmb2' ),
     'id'      => 'header_strapline',
     'type'    => 'text',
     'repeatable' => true
