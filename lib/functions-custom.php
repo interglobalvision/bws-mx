@@ -79,6 +79,7 @@ function front_page_posts() {
     'post_type'       =>  array('event'),
     'posts_per_page'  =>  '-1',
     'meta_key'        =>  '_igv_event_start_date',
+    'orderby'         =>  'meta_value',
     'meta_query'      =>  array(
       array(
         'key'     =>  '_igv_event_show_home',
