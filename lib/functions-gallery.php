@@ -92,19 +92,28 @@ function build_slider($images, $active, $type, $post_type) {
   <div id="slick-<?php echo $type; ?>" class="slick-container">
 <?php
   foreach($images as $image_id => $image) {
-    // Get captions by post type in both langs
-    $caption_en = get_post_meta($image_id, $post_type . '_caption_en', true);
-    $caption_es = get_post_meta($image_id, $post_type . '_caption_es', true);
+    $caption = get_post_meta($image_id, '_igv_caption_' . $post_type, true);
+    $work = get_post_meta($image_id, '_igv_attachment_work', true);
 ?>
     <div class="slick-slide text-align-center u-pointer">
       <?php echo wp_get_attachment_image($image_id, 'gallery', false, 'data-no-lazysizes'); ?>
+      <div class="slide-caption text-align-center font-size-tiny margin-top-small font-serif">
 <?php
-    if (!empty($caption_en) || !empty($caption_es)) {
+    if (!empty($caption)) {
 ?>
-      <div class="slide-caption margin-top-small text-align-center font-serif font-size-tiny"><? _e('[:en]' . $caption_en . '[:es]' . $caption_es . '[:]'); ?></div>
+        <? echo apply_filters('the_content', $caption); ?>
+<?php
+    }
+
+    if ($post_type == 'event' && !empty($work)) {
+
+      $work_link = get_the_permalink($work);
+?>
+        <p class="font-sans"><a class="link-underline" href="<?php echo $work_link; ?>"><?php _e('[:en]Learn more[:es]Saber más[:]'); ?></a></p>
 <?php
     }
 ?>
+      </div>
     </div>
 <?php
   }
