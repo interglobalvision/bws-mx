@@ -92,16 +92,21 @@ function build_slider($images, $active, $type, $post_type) {
   <div id="slick-<?php echo $type; ?>" class="slick-container">
 <?php
   foreach($images as $image_id => $image) {
-    $caption = get_post_meta($image_id, '_igv_caption_' . $post_type, true);
+    $caption_default = get_post_meta($image_id, '_igv_caption_default', true);
+    $caption_type = get_post_meta($image_id, '_igv_caption_' . $post_type, true);
     $work = get_post_meta($image_id, '_igv_attachment_work', true);
 ?>
     <div class="slick-slide text-align-center u-pointer">
       <?php echo wp_get_attachment_image($image_id, 'gallery', false, 'data-no-lazysizes'); ?>
       <div class="slide-caption text-align-center font-size-tiny margin-top-small font-serif">
 <?php
-    if (!empty($caption)) {
+    if (!empty($caption_type)) {
 ?>
-        <? echo apply_filters('the_content', $caption); ?>
+        <? echo apply_filters('the_content', $caption_type); ?>
+<?php
+    } else if (!empty($caption_default)) {
+?>
+        <? echo apply_filters('the_content', $caption_default); ?>
 <?php
     }
 
