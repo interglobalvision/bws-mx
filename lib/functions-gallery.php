@@ -9,14 +9,26 @@ function render_gallery($post_id) {
   <div id="sliders">
 
 <?php
-  if (!empty($works_images)) {
-    $active = $post_type == 'work' ? true : false;
-    build_slider($works_images, $active, 'works', $post_type);
-  }
+  if (!empty($works_images) || !empty($install_images)) {
+    if (!empty($works_images)) {
+      $active = $post_type == 'work' || empty($install_images) ? true : false;
+      build_slider($works_images, $active, 'works', $post_type);
+    }
 
-  if (!empty($install_images)) {
-    $active = $post_type == 'event' ? true : false;
-    build_slider($install_images, $active, 'install', $post_type);
+    if (!empty($install_images)) {
+      $active = $post_type == 'event' || empty($works_images) ? true : false;
+      build_slider($install_images, $active, 'install', $post_type);
+    }
+  } else {
+?>
+    <div class="container">
+      <div class="grid-row">
+        <div class="grid-item item-s-12 text-align-center">
+          <?php the_post_thumbnail('gallery'); ?>
+        </div>
+      </div>
+    </div>
+<?
   }
 
 ?>
@@ -31,25 +43,25 @@ function render_gallery($post_id) {
   if ($post_type == 'work') {
     if (!empty($works_images)) {
 ?>
-        <div class="slider-switch active" data-target="works"><?php _e('[:en]Work[:es]Obra[:]');?></div>
+        <div class="slider-switch <?php echo !empty($install_images) ? 'active' : ''; ?>" data-target="works"><?php _e('[:en]Work[:es]Obra[:]');?></div>
 <?php
     }
 
     if (!empty($install_images)) {
 ?>
-        <div class="slider-switch" data-target="install">Installation Views</div>
+        <div class="slider-switch <?php echo empty($works_images) ? 'active' : ''; ?>" data-target="install"><?php _e('[:en]Installation Views[:es]Vistas de Instalación[:]'); ?></div>
 <?php
     }
   } else if ($post_type == 'event') {
     if (!empty($install_images)) {
 ?>
-        <div class="slider-switch active" data-target="install">Installation Views</div>
+        <div class="slider-switch <?php echo !empty($works_images) ? 'active' : ''; ?>" data-target="install"><?php _e('[:en]Installation Views[:es]Vistas de Instalación[:]'); ?></div>
 <?php
     }
 
     if (!empty($works_images)) {
 ?>
-        <div class="slider-switch" data-target="works"><?php _e('[:en]Works[:es]Obras[:]');?></div>
+        <div class="slider-switch <?php echo empty($install_images) ? 'active' : ''; ?>" data-target="works"><?php _e('[:en]Works[:es]Obras[:]');?></div>
 <?php
     }
   }
@@ -59,11 +71,11 @@ function render_gallery($post_id) {
       <div class="grid-item item-s-6 item-m-4 text-align-right">
 <?php
     if (!empty($works_images)) {
-      $active = $post_type == 'work' ? true : false;
+      $active = $post_type == 'work' || empty($install_images) ? true : false;
       slider_buttons($active, 'works');
     }
     if (!empty($install_images)) {
-      $active = $post_type == 'event' ? true : false;
+      $active = $post_type == 'event' || empty($works_images) ? true : false;
       slider_buttons($active, 'install');
     }
 ?>
