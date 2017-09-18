@@ -73,7 +73,7 @@ function _igv_wp_ajax_find_posts() {
             $time = mysql2date(__('Y/m/d'), $post->post_date);
         }
 
-        $thumb = get_the_post_thumbnail($post->ID, 'thumbnail');
+        $thumb = get_the_post_thumbnail($post->ID, 'post-search');
 
         $html .= '<tr class="' . trim( 'found-posts ' . $alt ) . '"><td class="found-radio"><input type="radio" id="found-'.$post->ID.'" name="found_post_id" value="' . esc_attr($post->ID) . '"></td>';
         $html .= '<td><label for="found-'.$post->ID.'">' . esc_html( $title ) . '</label></td><td class="no-break">' . esc_html( $post_types[$post->post_type]->labels->singular_name ) . '</td><td class="no-break">'.esc_html( $time ) . '</td><td class="no-break">' . esc_html( $stat ). ' </td><td>' . $thumb . ' </td></tr>' . "\n\n";

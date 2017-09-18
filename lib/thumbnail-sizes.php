@@ -10,5 +10,7 @@ if( function_exists( 'add_image_size' ) ) {
 
   add_image_size( 'hover-image', 300, 300, false);
 
+  add_image_size( 'post-search', 100, 100, false);
+
   add_image_size( 'gallery', 1200, 9999, false );
 }
