@@ -10,5 +10,5 @@ if( function_exists( 'add_image_size' ) ) {
 
   add_image_size( 'hover-image', 300, 300, false);
 
-  add_image_size( 'gallery', 1200, 9999, false );
+  add_image_size( 'gallery', 1050, 700, false );
 }
