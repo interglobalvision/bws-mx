@@ -12,5 +12,5 @@ if( function_exists( 'add_image_size' ) ) {
 
   add_image_size( 'post-search', 100, 100, false);
 
-  add_image_size( 'gallery', 1200, 9999, false );
+  add_image_size( 'gallery', 1050, 700, false );
 }
