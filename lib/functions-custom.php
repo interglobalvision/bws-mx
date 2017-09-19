@@ -156,7 +156,7 @@ function front_page_posts() {
 // Render related posts section from artist array
 function render_related_by_artists($current_post_id) {
   $args = array(
-    'post_type' => array('event','work'),
+    'post_type' => array('event'),
     'tax_query' => array(
       array(
         'taxonomy' => 'artist',
@@ -184,11 +184,7 @@ function render_related_by_artists($current_post_id) {
         <article <?php post_class('grid-item related-item'); ?> id="post-<?php the_ID(); ?>">
           <a href="<?php the_permalink() ?>">
             <?php
-              if ($post_type == 'event') {
-                get_template_part('partials/related-event');
-              } else if ($post_type == 'work') {
-                get_template_part('partials/related-work');
-              }
+              get_template_part('partials/related-event');
             ?>
           </a>
         </article>
