@@ -5,7 +5,7 @@ function render_gallery($post_id) {
   $works_images = get_post_meta($post_id, '_igv_documentation_works', true);
   $install_images = get_post_meta($post_id, '_igv_documentation_install', true);
 ?>
-<section id="gallery-holder" class="margin-bottom-mid">
+<section id="gallery-holder" class="margin-bottom-mid border-top-white padding-top-basic">
   <div id="sliders">
 
 <?php
@@ -101,6 +101,7 @@ function slider_buttons($active, $type) {
 function build_slider($images, $active, $type, $post_type) {
 ?>
 <div id="slider-holder-<?php echo $type; ?>" class="slider-holder<?php echo $active ? ' active' : '';?>">
+  <h3 class="text-align-center margin-bottom-basic font-size-basic font-bold"><?php echo $type == 'works' ? 'Works' : 'Installation Views'; ?></h3>
   <div id="slick-<?php echo $type; ?>" class="slick-container">
 <?php
   foreach($images as $image_id => $image) {
@@ -108,7 +109,7 @@ function build_slider($images, $active, $type, $post_type) {
     $caption_type = get_post_meta($image_id, '_igv_caption_' . $post_type, true);
     $work = get_post_meta($image_id, '_igv_attachment_work', true);
 ?>
-    <div class="slick-slide text-align-center u-pointer">
+    <div class="slick-slide gallery-item text-align-center u-pointer">
       <?php echo wp_get_attachment_image($image_id, 'gallery', false, 'data-no-lazysizes'); ?>
       <div class="slide-caption text-align-center font-size-tiny margin-top-small font-serif">
 <?php

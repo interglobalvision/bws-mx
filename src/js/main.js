@@ -35,6 +35,10 @@ Site = {
   onResize: function() {
     var _this = this;
 
+    if ($('.slick-container').length) {
+      Site.Gallery.toggleSlick();
+    }
+
   },
 
   fixWidows: function() {
@@ -108,42 +112,69 @@ Site.Gallery = {
   init: function() {
     var _this = this;
 
-    if ($('#slider-holder-install').length) {
-      _this.initSlick('install');
-    }
-    if ($('#slider-holder-works').length) {
-      _this.initSlick('works');
-    }
+    _this.toggleSlick();
 
     _this.bindSwitch();
+  },
+
+  toggleSlick: function(windowWidth) {
+    var _this = this;
+
+    var windowWidth = $(window).width();
+
+    console.log(windowWidth);
+
+    if (windowWidth > 720) {
+      if ($('#slider-holder-install').length) {
+        _this.initSlick('install');
+      }
+      if ($('#slider-holder-works').length) {
+        _this.initSlick('works');
+      }
+    } else {
+      if ($('#slider-holder-install').length) {
+        _this.unSlick('install');
+      }
+      if ($('#slider-holder-works').length) {
+        _this.unSlick('works');
+      }
+    }
   },
 
   initSlick: function(type) {
     var _this = this;
 
-    $('#slick-' + type).on({
-      init: function(event, slick, currentSlide) {
-        _this.updateCaption(0);
-      },
-      beforeChange: function(event, slick, currentSlide) {
-        _this.clearCaption();
-      },
-      afterChange: function(event, slick, currentSlide) {
-        _this.updateCaption(currentSlide);
-      }
-    }).slick({
-      dots: false,
-      arrows: true,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 1,
-      centerMode: true,
-      variableWidth: true,
-      focusOnSelect: true,
-      nextArrow: '.slider-next-' + type,
-      prevArrow: '.slider-prev-' + type,
-    });
+    if (!$('#slick-' + type).hasClass('slick-initialized')) {
+      $('#slick-' + type).on({
+        init: function(event, slick, currentSlide) {
+          _this.updateCaption(0);
+        },
+        beforeChange: function(event, slick, currentSlide) {
+          _this.clearCaption();
+        },
+        afterChange: function(event, slick, currentSlide) {
+          _this.updateCaption(currentSlide);
+        }
+      }).slick({
+        dots: false,
+        arrows: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        centerMode: true,
+        variableWidth: true,
+        focusOnSelect: true,
+        nextArrow: '.slider-next-' + type,
+        prevArrow: '.slider-prev-' + type,
+      });
+    }
 
+  },
+
+  unSlick: function(type) {
+    if ($('#slick-' + type).hasClass('slick-initialized')) {
+      $('#slick-' + type).slick('unslick');
+    }
   },
 
   updateCaption: function(activeIndex) {
