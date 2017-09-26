@@ -11,7 +11,7 @@ function igv_get_post_artists($post_id, $link = false) {
 
   for ($i=0; $i < $count_terms; $i++) {
     if ($link == true) {
-      $artists .= '<a href="' . get_term_link($artist_terms[$i]->term_taxonomy_id) . '">' . $artist_terms[$i]->name . '</a>';
+      $artists .= '<a class="link-underline" href="' . get_term_link($artist_terms[$i]->term_taxonomy_id) . '">' . $artist_terms[$i]->name . '</a>';
     } else {
       $artists .= $artist_terms[$i]->name;
     }
