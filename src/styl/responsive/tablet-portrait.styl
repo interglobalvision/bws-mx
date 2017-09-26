@@ -23,16 +23,37 @@ $footer-logo-size = 28px
 
 // GALLERY
 
+.slider-holder
+  height: 0
+  pointer-events: none
+  overflow: hidden
+  &.active
+    height: auto
+    pointer-events: auto
+    overflow: visible
+    
+.gallery-item
+  width: auto
+  margin-bottom: 0
+
 .slick-slide
+  opacity: .5
+  display: block
   margin: 0 $margin-small
+  &.slick-active
+    opacity: 1
+  &:focus
+    outline: 0
   img
+    display: block
     max-width: 80vw
     height: 40vw
+    width: auto
 
 .slide-caption
   display: none
 
-.slider-controls-caption
+#slider-controls
   display: block
 
 // ******************************************************
