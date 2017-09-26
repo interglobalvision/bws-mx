@@ -3,7 +3,7 @@ get_header();
 ?>
 
 <main id="main-content" class="padding-top-large">
-  <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+  <article <?php post_class('margin-bottom-mid'); ?> id="post-<?php the_ID(); ?>">
 
 
 <?php
