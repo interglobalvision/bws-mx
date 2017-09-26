@@ -154,6 +154,7 @@ function build_slider($images, $active, $type, $post_type) {
 <?php
 }
 
+// Output captions in control bar row
 function return_controls_captions($images, $active, $type, $post_type) {
 ?>
 <div id="slider-controls-caption-<?php echo $type; ?>" class="slider-controls-caption-wrapper<?php echo $active ? ' active' : '';?>">
@@ -162,7 +163,7 @@ function return_controls_captions($images, $active, $type, $post_type) {
     $caption_default = wp_get_attachment_caption($image_id);
     $caption_type = get_post_meta($image_id, '_igv_caption_' . $post_type, true);
     $work = get_post_meta($image_id, '_igv_attachment_work', true);
-    
+
     if (!empty($caption_type) || !empty($caption_default)) {
 ?>
   <div class="slider-controls-caption" data-id="<?php echo $image_id; ?>">
