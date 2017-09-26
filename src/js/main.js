@@ -148,6 +148,7 @@ Site.Gallery = {
       $('#slick-' + type).on({
         init: function(event, slick, currentSlide) {
           _this.updateCaption(0);
+          _this.captionHeight();
         },
         beforeChange: function(event, slick, currentSlide) {
           _this.clearCaption();
@@ -178,23 +179,43 @@ Site.Gallery = {
   },
 
   updateCaption: function(activeIndex) {
+    var _this = this;
+
     // Update caption in slider control row
-    // from '.slide-caption' elem in active slide
+    // with 'data-id' attr in active slide
     if (activeIndex) {
-      var caption = $('.slider-holder.active .slick-slide[data-slick-index="' + activeIndex + '"] .slide-caption').html();
+      var imageId = $('.slider-holder.active .slick-slide[data-slick-index="' + activeIndex + '"]').attr('data-id');
     } else {
-      var caption = $('.slider-holder.active .slick-active .slide-caption').html();
+      var imageId = $('.slider-holder.active .slick-active').attr('data-id');
     }
 
-    if (!caption) {
-      caption = '';
-    }
+    _this.clearCaption();
 
-    $('.slider-controls-caption').html(caption);
+    var $caption = $('[data-id="' + imageId + '"]');
+
+    if ($caption.length) {
+      $caption.addClass('show');
+    }
   },
 
   clearCaption: function() {
-    $('.slider-controls-caption').html('');
+    $('.slider-controls-caption').removeClass('show');
+  },
+
+  captionHeight: function() {
+    var topHeight = 0;
+
+    if ($(window).height() > 720) {
+      $('.slider-controls-caption').each(function() {
+        var thisHeight = $(this).outerHeight();
+
+        if (thisHeight > topHeight) {
+          topHeight = thisHeight;
+        }
+      });
+
+      $('#slider-controls-caption-holder').height(topHeight);
+    }
   },
 
   bindSwitch: function() {
@@ -205,9 +226,10 @@ Site.Gallery = {
       if (!$(this).hasClass('.active')) {
         var type = $(this).attr('data-target');
 
-        $('.slider-switch, .slider-holder, .slider-buttons').removeClass('active');
+        $('.slider-switch, .slider-holder, .slider-buttons, .slider-controls-caption-wrapper').removeClass('active');
         $(this).addClass('active');
         $('#slider-holder-' + type + ', #slider-buttons-' + type).addClass('active');
+        $('#slider-controls-caption-' + type).addClass('active');
 
         _this.updateCaption();
       } else {
