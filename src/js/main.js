@@ -217,33 +217,4 @@ Site.Gallery = {
   }
 };
 
-Site.Mailchimp = {
-  init: function() {
-    var _this = this;
-
-    _this.insertPlaceholders();
-    _this.rebuildMarkup();
-  },
-
-  insertPlaceholders: function() {
-    $('.mc-field-group').each(function() {
-      var label = $(this).find('label').text();
-
-      // remove asterisks and ending whitespace
-      var placeholder = label.replace(/\*/g, '').replace(/\s*$/,'');
-
-      // use new placeholder text for inputs
-      $(this).find('input').attr('placeholder', placeholder);
-    });
-  },
-
-  rebuildMarkup: function() {
-    var $parent = $('#mc_embed_signup_scroll');
-
-    // wrap mailchimp elements in grid-item
-    $parent.children().not('.clear').wrapAll('<div id="mc-inputs" class="grid-item" />');
-    $parent.children('.clear').removeClass('clear').addClass('grid-item');
-  },
-};
-
 Site.init();

@@ -94,9 +94,15 @@ function igv_register_theme_options_metabox() {
   ) );
 
   $site_options->add_field( array(
-    'name'    => esc_html__( 'Mailchimp embed', 'cmb2' ),
-    'id'      => 'contact_mailchimp',
-    'type'    => 'textarea_code',
+    'name'    => esc_html__( 'Mailchimp action URL', 'cmb2' ),
+    'id'      => 'contact_mailchimp_action',
+    'type'    => 'text',
+  ) );
+
+  $site_options->add_field( array(
+    'name'    => esc_html__( 'Mailchimp validation code', 'cmb2' ),
+    'id'      => 'contact_mailchimp_validation',
+    'type'    => 'text',
   ) );
 
   // Social Media variables

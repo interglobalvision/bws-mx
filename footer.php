@@ -29,13 +29,23 @@
         </div>
 
         <div class="grid-item item-s-12 item-m-auto item-l-6 margin-bottom-small no-gutter">
-          <div>
-            <?php
-              if (!empty($options['contact_mailchimp'])) {
-                echo $options['contact_mailchimp'];
+<?php
+            if (!empty($options['contact_mailchimp_action'])) {
+?>
+          <form action="<?php echo $options['contact_mailchimp_action']; ?>" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="font-sans grid-row">
+            <input placeholder="Email" type="email" name="EMAIL" id="mce-EMAIL" class="font-size-tiny grid-item item-s-5 item-m-7 item-l-4">
+<?php
+              if (!empty($options['contact_mailchimp_validation'])) {
+?>
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="<?php echo $options['contact_mailchimp_validation']; ?>" tabindex="-1" value=""></div>
+<?php
               }
-            ?>
-          </div>
+?>
+            <input type="submit" class="font-size-tiny font-bold grid-item item-s-6 offset-s-1 item-m-auto text-align-left" value="<?php _e('[:en]Subscribe[:es]Suscribirse[:]'); ?>">
+          </form>
+<?php
+            }
+?>
         </div>
 
         <div id="social-icons" class="grid-item item-s-12 item-m-auto item-l-2 margin-bottom-small">
