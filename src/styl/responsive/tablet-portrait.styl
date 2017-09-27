@@ -70,8 +70,10 @@ $footer-logo-size = 28px
   opacity: 0
   transition: opacity 200ms ease-in-out
   width: calc('100% - ' + $margin-small)
+  pointer-events: none
   &.show
     opacity: 1
+    pointer-events: auto
   p:last-child
     margin-bottom: 0
 
