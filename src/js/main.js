@@ -205,7 +205,7 @@ Site.Gallery = {
   captionHeight: function() {
     var topHeight = 0;
 
-    if ($(window).height() > 720) {
+    if ($(window).width() > 720) {
       $('.slider-controls-caption').each(function() {
         var thisHeight = $(this).outerHeight();
 
