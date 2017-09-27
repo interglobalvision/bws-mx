@@ -71,11 +71,11 @@ function render_gallery($post_id) {
       <div id="slider-controls-caption-holder" class="grid-item item-m-4 margin-top-micro text-align-center font-serif font-size-tiny">
 <?php
     if (!empty($works_images)) {
-      $active = $post_type == 'work' || empty($works_images) ? true : false;
+      $active = $post_type == 'work' || empty($install_images) ? true : false;
       return_controls_captions($works_images, $active, 'works', $post_type);
     }
     if (!empty($install_images)) {
-      $active = $post_type == 'event' || empty($install_images) ? true : false;
+      $active = $post_type == 'event' || empty($works_images) ? true : false;
       return_controls_captions($install_images, $active, 'install', $post_type);
     }
 ?>
