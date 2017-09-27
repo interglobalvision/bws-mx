@@ -58,6 +58,24 @@ $footer-logo-size = 28px
 #slider-controls
   display: block
 
+.slider-controls-caption-wrapper
+  opacity: 0
+  transition: opacity 200ms ease-in-out
+  &.active
+    opacity: 1
+
+.slider-controls-caption
+  display: block
+  position: absolute
+  opacity: 0
+  transition: opacity 200ms ease-in-out
+  width: calc('100% - ' + $margin-small)
+  &.show
+    opacity: 1
+  p:last-child
+    margin-bottom: 0
+
+
 // ******************************************************
 
 // FOOTER

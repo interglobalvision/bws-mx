@@ -67,7 +67,20 @@ function render_gallery($post_id) {
   }
 ?>
       </div>
-      <div class="grid-item item-m-4 slider-controls-caption margin-top-micro text-align-center font-serif font-size-tiny"></div>
+
+      <div id="slider-controls-caption-holder" class="grid-item item-m-4 margin-top-micro text-align-center font-serif font-size-tiny">
+<?php
+    if (!empty($works_images)) {
+      $active = $post_type == 'work' || empty($works_images) ? true : false;
+      return_controls_captions($works_images, $active, 'works', $post_type);
+    }
+    if (!empty($install_images)) {
+      $active = $post_type == 'event' || empty($install_images) ? true : false;
+      return_controls_captions($install_images, $active, 'install', $post_type);
+    }
+?>
+      </div>
+
       <div class="grid-item item-s-6 item-m-4 text-align-right">
 <?php
     if (!empty($works_images)) {
@@ -105,11 +118,11 @@ function build_slider($images, $active, $type, $post_type) {
   <div id="slick-<?php echo $type; ?>" class="slick-container">
 <?php
   foreach($images as $image_id => $image) {
-    $caption_default = get_post_meta($image_id, '_igv_caption_default', true);
+    $caption_default = wp_get_attachment_caption($image_id);
     $caption_type = get_post_meta($image_id, '_igv_caption_' . $post_type, true);
     $work = get_post_meta($image_id, '_igv_attachment_work', true);
 ?>
-    <div class="slick-slide gallery-item text-align-center u-pointer">
+    <div class="slick-slide gallery-item text-align-center u-pointer" data-id="<?php echo $image_id; ?>">
       <?php echo wp_get_attachment_image($image_id, 'gallery', false, 'data-no-lazysizes'); ?>
       <div class="slide-caption text-align-center font-size-tiny margin-top-small font-serif">
 <?php
@@ -137,6 +150,42 @@ function build_slider($images, $active, $type, $post_type) {
   }
 ?>
   </div>
+</div>
+<?php
+}
+
+// Output captions in control bar row
+function return_controls_captions($images, $active, $type, $post_type) {
+?>
+<div id="slider-controls-caption-<?php echo $type; ?>" class="slider-controls-caption-wrapper<?php echo $active ? ' active' : '';?>">
+<?php
+  foreach ($images as $image_id => $image) {
+    $caption_default = wp_get_attachment_caption($image_id);
+    $caption_type = get_post_meta($image_id, '_igv_caption_' . $post_type, true);
+    $work = get_post_meta($image_id, '_igv_attachment_work', true);
+
+    if (!empty($caption_type) || !empty($caption_default)) {
+?>
+  <div class="slider-controls-caption" data-id="<?php echo $image_id; ?>">
+    <?php
+      if (!empty($caption_type)) {
+        echo apply_filters('the_content', $caption_type);
+      } else if (!empty($caption_default)) {
+        echo apply_filters('the_content', $caption_default);
+      }
+      if ($post_type == 'event' && !empty($work)) {
+
+        $work_link = get_the_permalink($work);
+    ?>
+    <p class="font-sans"><a class="link-underline" href="<?php echo $work_link; ?>"><?php _e('[:en]Learn more[:es]Saber más[:]'); ?></a></p>
+    <?php
+      }
+    ?>
+  </div>
+<?php
+    }
+  }
+?>
 </div>
 <?php
 }
