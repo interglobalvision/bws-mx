@@ -106,6 +106,14 @@ function igv_cmb_metaboxes() {
   ) );
 
   $work_metabox->add_field( array(
+    'name' => esc_html__( 'Show on Archive', 'cmb2' ),
+    'desc' => esc_html__( 'List work on archive page', 'cmb2' ),
+    'id'   => $prefix . 'work_show_archive',
+    'type' => 'checkbox',
+    'column'  => true,
+  ) );
+
+  $work_metabox->add_field( array(
     'name' => esc_html__( 'Inventory #', 'cmb2' ),
     'id'   => $prefix . 'work_inventory',
     'type' => 'text',

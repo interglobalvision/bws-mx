@@ -73,6 +73,13 @@ if (!empty($artists)) {
 $args = array(
   'post_type' => 'work',
   'posts_per_page' => -1,
+  'meta_query'      =>  array(
+    array(
+      'key'     =>  '_igv_work_show_archive',
+      'value'   =>  'on',
+      'compare' =>  '='
+    )
+  )
 );
 
 $work_query = new WP_Query($args);
