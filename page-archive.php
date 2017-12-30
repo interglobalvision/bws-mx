@@ -26,7 +26,8 @@ if ($event_query->have_posts()) {
   while ($event_query->have_posts()) {
     $event_query->the_post();
 ?>
-          <div class="grid-item item-s-6 margin-bottom-mid">
+          <div class="grid-item item-s-6 margin-bottom-mid js-hover-item">
+            <?php echo get_the_post_thumbnail($post->ID, 'hover-image', 'class=hover-image'); ?>
             <a href="<?php the_permalink(); ?>">
               <?php get_template_part('partials/related-event'); ?>
             </a>
@@ -84,7 +85,8 @@ if ($work_query->have_posts()) {
   while ($work_query->have_posts()) {
     $work_query->the_post();
 ?>
-          <div class="grid-item item-s-12 margin-bottom-mid">
+          <div class="grid-item item-s-12 margin-bottom-mid js-hover-item">
+            <?php echo get_the_post_thumbnail($post->ID, 'hover-image', 'class=hover-image'); ?>
             <a href="<?php the_permalink(); ?>">
               <?php get_template_part('partials/related-work'); ?>
             </a>
