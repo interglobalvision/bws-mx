@@ -20,7 +20,7 @@ $event_query = new WP_Query($args);
 
 if ($event_query->have_posts()) {
 ?>
-        <div class="grid-item item-s-12 item-m-6 item-l-6 grid-row no-gutter align-content-start">
+        <div class="grid-item item-s-12 item-l-6 grid-row no-gutter align-content-start">
           <h2 class="grid-item item-s-12 font-sans font-size-tiny font-light margin-bottom-basic"><?php echo __('[:es]Exposiciones y Eventos[:en]Exhibitions & Events'); ?></h2>
 <?php
   while ($event_query->have_posts()) {
@@ -51,7 +51,7 @@ $artists = get_terms($args);
 
 if (!empty($artists)) {
 ?>
-        <div class="grid-item item-s-12 item-m-2 item-l-3 grid-row no-gutter align-content-start margin-bottom-mid">
+        <div class="grid-item item-s-12 item-m-6 item-l-3 grid-row no-gutter align-content-start margin-bottom-mid">
           <h2 class="grid-item item-s-12 font-sans font-size-tiny font-light margin-bottom-basic"><?php echo __('[:es]Artistas expuestos[:en]Exhibited Artists'); ?></h2>
 <?php
   foreach ($artists as $artist) {
@@ -86,7 +86,7 @@ $work_query = new WP_Query($args);
 
 if ($work_query->have_posts()) {
 ?>
-        <div class="grid-item item-s-12 item-m-4 item-l-3 grid-row no-gutter align-content-start">
+        <div class="grid-item item-s-12 item-m-6 item-l-3 grid-row no-gutter align-content-start">
           <h2 class="grid-item item-s-12 font-sans font-size-tiny font-light margin-bottom-basic"><?php echo __('[:es]Obras seleccionadas[:en]Select Works'); ?></h2>
 <?php
   while ($work_query->have_posts()) {
