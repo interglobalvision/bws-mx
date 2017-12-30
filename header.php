@@ -57,7 +57,7 @@ get_template_part('partials/seo');
 
         <nav id="main-nav" class="grid-item item-m-7 item-l-4 item-xl-3 flex-grow">
           <ul class="u-inline-list font-bold">
-            <!--li><a href="<?php echo home_url('archive'); ?>"><?php echo __('[:es]Archivo[:en]Archive'); ?></a></li-->
+            <li><a href="<?php echo home_url('archive'); ?>"><?php echo __('[:es]Archivo[:en]Archive'); ?></a></li>
             <li><a href="<?php echo home_url('information'); ?>"><?php echo __('[:es]Información[:en]Information'); ?></a></li>
           </ul>
         </nav>
