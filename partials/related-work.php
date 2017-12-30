@@ -5,7 +5,7 @@ $work_artists = igv_get_post_artists($post->ID);
 
 if (!empty($work_cats)) {
 ?>
-  <div class="font-sans font-size-tiny font-light margin-bottom-basic"><?php echo $work_cats[0]->name; ?></div>
+  <div class="font-sans font-size-tiny font-light margin-bottom-micro"><?php echo $work_cats[0]->name; ?></div>
 <?php
 }
 ?>

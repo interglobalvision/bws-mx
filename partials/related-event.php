@@ -5,7 +5,7 @@ $event_date_location = event_date_location($post->ID);
 
 if (!empty($event_cats)) {
 ?>
-  <div class="font-sans font-light font-size-tiny margin-bottom-basic"><?php echo $event_cats[0]->name; ?></div>
+  <div class="font-sans font-light font-size-tiny margin-bottom-micro"><?php echo $event_cats[0]->name; ?></div>
 <?php
 }
 ?>
