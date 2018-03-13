@@ -115,6 +115,14 @@ Site.Gallery = {
     _this.toggleSlick();
 
     _this.bindSwitch();
+
+    _this.$gallerySlide = $('.slick-slide');
+    _this.$activeSlide = $('.slick-current.slick-active');
+    _this.$galleryZoom = $('#gallery-zoom');
+    _this.$galleryZoomImg = $('#gallery-zoom-image');
+
+    _this.bindZoom();
+    _this.bindZoomOut();
   },
 
   toggleSlick: function(windowWidth) {
@@ -155,6 +163,7 @@ Site.Gallery = {
         },
         afterChange: function(event, slick, currentSlide) {
           _this.updateCaption(currentSlide);
+          _this.bindZoom();
         }
       }).slick({
         dots: false,
@@ -235,6 +244,27 @@ Site.Gallery = {
       } else {
         return;
       }
+    });
+  },
+
+  bindZoom: function() {
+    var _this = this;
+
+    _this.$gallerySlide.unbind('click.zoomEvent');
+
+    $('.slick-current.slick-active').bind('click.zoomEvent', function() {
+      var imgSrc = $(this).find('img').attr('src');
+
+      _this.$galleryZoom.addClass('show');
+      _this.$galleryZoomImg.attr('src', imgSrc);
+    });
+  },
+
+  bindZoomOut: function() {
+    var _this = this;
+
+    _this.$galleryZoom.bind('click', function() {
+      $(this).removeClass('show');
     });
   }
 };

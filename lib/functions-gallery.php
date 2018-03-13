@@ -97,6 +97,7 @@ function render_gallery($post_id) {
 
   </div>
 </section>
+<div id="gallery-zoom" class="grid-row justify-center align-items-center"><div><img id="gallery-zoom-image" /></div></div>
 <?php
 }
 

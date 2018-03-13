@@ -124,6 +124,29 @@ $footer-logo-size = 21px
 #slider-controls
   display: none
 
+.slick-current.slick-active
+  cursor: zoom-in
+
+#gallery-zoom
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  background-color: rgba(255,255,255,.8)
+  position: fixed
+  opacity: 0
+  transition: opacity 1000ms
+  pointer-events: none
+  z-index: 1100
+  cursor: zoom-out
+  &.show
+    opacity: 1
+    pointer-events: all
+
+#gallery-zoom-image
+  max-height: 90vh
+  max-width: 90vw
+
 // ******************************************************
 
 // SINGLE EVENT
