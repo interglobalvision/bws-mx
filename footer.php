@@ -3,7 +3,9 @@
       <div class="grid-row justify-between">
 
         <div class="grid-item item-s-12 item-m-auto item-l-4 grid-row no-gutter margin-bottom-small">
-          <div class="grid-item item-s-6 item-m-auto"><a href="<?php echo home_url(); ?>"><?php echo url_get_contents(get_template_directory_uri() . '/dist/img/bread.svg'); ?></a></div>
+          <div id="footer-logo" class="grid-item item-s-6 item-m-auto font-logo font-size-extra">
+            <a href="<?php echo home_url(); ?>">BWSMX</a>
+          </div>
 
           <div class="grid-item flex-grow font-size-tiny">
           <?php
@@ -11,7 +13,7 @@
 
             if (!empty($options['contact_tel'])) {
           ?>
-            <div class="margin-bottom-tiny">
+            <div class="margin-bottom-micro">
               <a class="link-underline" href="tel:<?php echo $options['contact_tel']; ?>"><?php echo $options['contact_tel']; ?></a>
             </div>
           <?php
