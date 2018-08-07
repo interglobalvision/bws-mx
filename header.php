@@ -36,7 +36,7 @@ get_template_part('partials/seo');
       <div class="grid-row padding-top-tiny padding-bottom-tiny align-items-baseline">
 
         <div class="grid-item item-m-3 item-l-7 item-xl-8 grid-row no-gutter align-items-baseline">
-          <h1 id="header-logo" class="grid-item font-logo font-size-extra"><a href="<?php echo home_url(); ?>">BWSMX</a></h1>
+          <h1 id="header-logo" class="grid-item"><a href="<?php echo home_url(); ?>"><?php echo url_get_contents(get_template_directory_uri() . '/dist/img/bread.svg'); ?></a></h1>
 
 <?php
   $options = get_site_option('_igv_site_options');
